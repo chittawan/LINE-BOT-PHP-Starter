@@ -84,10 +84,25 @@ function GetReplyMessage($text,$userId) {
 		  'packageId'=> '1',
 		  'stickerId'=> '3'
 		]];
-	} else if (stripos($text, "555") !== false) {		
+	} else if (stripos($text, "555+") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'ฮาๆ พากุไปหาหอยหน่อย'
+			'text' => 'ฮาๆ พากุไปหาหอย'
+		]];
+	} else if (stripos($text, "ฮาๆ") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'ฮาหมอย หอยไม่อ้า'
+		]];
+	} else if (stripos($text, "เออ") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'เออ'
+		]];
+	}  else if (stripos($text, "ว่าไง") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'ลืมแล้ว'
 		]];
 	} 
 	return $messages;
