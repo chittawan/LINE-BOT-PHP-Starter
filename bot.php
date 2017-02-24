@@ -24,7 +24,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-			if (stripos($text, "หอย") !== false) {
+			//if (stripos($text, "หอย") !== false) {
 	
 				//if ($userId == $SSCGroupId || $userId == $TestGroupId || $userId == $PaeUserId) {
 					$messages = GetReplyMessage($text,$userId);
@@ -61,7 +61,7 @@ if (!is_null($events['events'])) {
 					echo $result . "\r\n";
 				}
 				
-			}
+			//}
 		}
 	}
 }
@@ -77,6 +77,12 @@ function GetReplyMessage($text,$userId) {
 		$messages = [[
 			'type' => 'text',
 			'text' => 'กุจะตามล่าหามัน'
+		]];
+	} else if (stripos($text, "ล่าหามัน") !== false) {
+		$messages = [[
+		  'type'=> 'sticker',
+		  'packageId'=> '1',
+		  'stickerId'=> '3'
 		]];
 	}
 	return $messages;
