@@ -75,5 +75,6 @@ function GetReplyMessage($text,$userId) {
 		  'stickerId'=> '3'
 		]];
 	}
+	return $messages;
 }
 echo "OK";
