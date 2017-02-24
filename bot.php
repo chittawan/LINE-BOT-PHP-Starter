@@ -84,7 +84,12 @@ function GetReplyMessage($text,$userId) {
 		  'packageId'=> '1',
 		  'stickerId'=> '3'
 		]];
-	}
+	} else if (stripos($text, "555") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'ฮาๆ พากุไปหาหอยหน่อย'
+		]];
+	} 
 	return $messages;
 }
 echo "OK";
