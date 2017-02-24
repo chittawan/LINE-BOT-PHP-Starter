@@ -104,6 +104,26 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => 'ลืมแล้ว'
 		]];
+	}  else if (stripos($text, "เล่นอะไรกัน") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'หาหอยให้กุเล่นหน่อย'
+		]];
+	} else if (stripos($text, "ไปเล่นตรงนู๊น") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'เค้าไล่กุมาเล่นตรงนี้'
+		]];
+	} else if (stripos($text, "พ้อง") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'หอย'
+		]];
+	} else if (stripos($text, "สัด") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'จับมันมามัดกับหอย'
+		]];
 	} 
 	return $messages;
 }
