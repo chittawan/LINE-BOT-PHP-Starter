@@ -24,7 +24,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-			if (stripos($text, "©та") !== false) {
+			if (stripos($text, "Film") !== false) {
 	
 				//if ($userId == $SSCGroupId || $userId == $TestGroupId || $userId == $PaeUserId) {
 					$messages = GetReplyMessage($text,$userId);
@@ -68,7 +68,7 @@ if (!is_null($events['events'])) {
 function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	// Build message to reply back
-	if (stripos($text, "©та") !== false) {
+	if (stripos($text, "Film") !== false) {
 		$messages = [[
 		  'type'=> 'sticker',
 		  'packageId'=> '1',
