@@ -76,7 +76,7 @@ function GetReplyMessage($text,$userId) {
 		//]];
 		$messages = [[
 			'type' => 'text',
-			'text' => 'กุจะตามล่าหามัน'
+			'text' => 'กุจะพาไปกินตับ'
 		]];
 	} else if (stripos($text, "ล่าหามัน") !== false) {
 		$messages = [[
@@ -87,12 +87,12 @@ function GetReplyMessage($text,$userId) {
 	} else if (stripos($text, "555+") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'ฮาๆ พากุไปหาหอย'
+			'text' => 'ฮาๆ ตับหวานเคยกินมั้ย'
 		]];
 	} else if (stripos($text, "ฮาๆ") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'ฮาหมอย หอยไม่อ้า'
+			'text' => 'ฮาหมอย หรอยกับตับ'
 		]];
 	} else if (stripos($text, "เออ") !== false) {		
 		$messages = [[
@@ -107,7 +107,7 @@ function GetReplyMessage($text,$userId) {
 	}  else if (stripos($text, "เล่นอะไรกัน") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'หาหอยให้กุเล่นหน่อย'
+			'text' => 'หาตับให้กุเล่นหน่อย'
 		]];
 	} else if (stripos($text, "ไปเล่นตรงนู๊น") !== false) {		
 		$messages = [[
@@ -117,12 +117,7 @@ function GetReplyMessage($text,$userId) {
 	} else if (stripos($text, "พ้อง") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'หอย'
-		]];
-	} else if (stripos($text, "สัด") !== false) {		
-		$messages = [[
-			'type' => 'text',
-			'text' => 'จับมันมามัดกับหอย'
+			'text' => 'ตับ ตับ ตับ'
 		]];
 	} 
 	return $messages;
