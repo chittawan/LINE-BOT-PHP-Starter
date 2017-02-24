@@ -26,16 +26,16 @@ if (!is_null($events['events'])) {
 
 			if (stripos($text, "©та") !== false) {
 	
-				if ($userId == $SSCGroupId || $userId == $TestGroupId || $userId == $PaeUserId) {
+				//if ($userId == $SSCGroupId || $userId == $TestGroupId || $userId == $PaeUserId) {
 					$messages = GetReplyMessage($text,$userId);
 
-				} 
-				elseif (stripos($text, "userid") !== false) {
-					$messages = [[
-						'type' => 'text',
-						'text' => $userId
-					]];
-				}
+				//} 
+				//elseif (stripos($text, "userid") !== false) {
+				//	$messages = [[
+				//		'type' => 'text',
+				//		'text' => $userId
+				//	]];
+				//}
 				
 				if (!is_null($messages)) {
 				
