@@ -183,15 +183,20 @@ function GetReplyMessage($text,$userId) {
 		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 		$xml = simplexml_load_file($feedUrl);
 		$txt = '';
+		$myDate = '';
 		#echo $xml->weeklyevents->event->title;
 			foreach($xml->children() as $event)
 			{	 
-			   $impact = $event->impact;
+			   if($myDate != $event->date){
+				$myDate = (string)$event->date;
+				$txt .= ($event->date) . "\n";
+			   }
 				#echo $impact;
-			   if($impact == 'High'){
-				$txt .= ($event->title) . "\n";
+			   if($event->impact == 'High'){
+				$txt .= ($event->country) .($event->time) . ($event->title) . "\n";
 			   }
 			}
+		           
 		$messages = [[
 			'type' => 'text',
 			'text' => $txt
