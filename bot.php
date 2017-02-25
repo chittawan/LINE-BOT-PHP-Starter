@@ -129,6 +129,11 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => 'ชิวๆ'
 		]];
+	}  else if (stripos($text, "จน") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'พรุ่งนี้รวยๆ'
+		]];
 	} 
 	return $messages;
 }
