@@ -194,7 +194,7 @@ function GetReplyMessage($text,$userId) {
 			}
 		$messages = [[
 			'type' => 'text',
-			'text' => urlencode($txt)
+			'text' => $txt
 		]];
 	} 
 	return $messages;
