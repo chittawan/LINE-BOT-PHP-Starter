@@ -171,6 +171,13 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => $randNumber
 		]];
+	}  else if (stripos($text, "2 ตัว") !== false) {	
+		$digits = 2;
+                $randNumber = rand(pow(10, $digits-1), pow(10, $digits)-1);
+		$messages = [[
+			'type' => 'text',
+			'text' => $randNumber
+		]];
 	} 
 	return $messages;
 }
