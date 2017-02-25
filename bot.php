@@ -193,7 +193,7 @@ function GetReplyMessage($text,$userId) {
 			   }
 				#echo $impact;
 			   if($event->impact == 'High'){
-				$txt .= ($event->country) .($event->time) . ($event->title) . "\n";
+				$txt .= ($event->country) . ' ' . ($event->time) . ' ' . ($event->title) . "\n";
 			   }
 			}
 		           
