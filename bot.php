@@ -183,7 +183,7 @@ function GetReplyMessage($text,$userId) {
 		$xmlFeed = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 		$xml = simplexml_load_file($xmlFeed);
 		$msg = '';
-		echo $xml->weeklyevents->event->title;
+		#echo $xml->weeklyevents->event->title;
 			foreach($xml->children() as $event)
 			{	 
 			   $impact = $event->impact;
