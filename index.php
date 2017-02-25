@@ -1,5 +1,6 @@
 <?php
 $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
+		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 		$xml = simplexml_load_file($feedUrl);
 		$txt = '';
 		#echo $xml->weeklyevents->event->title;
@@ -8,7 +9,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 			   $impact = $event->impact;
 				#echo $impact;
 			   if($impact == 'High'){
-				$txt = $txt + ($event->title) +'\r\n';
+				$txt .= ($event->title) . "\n";
 			   }
 			}
 echo $txt
