@@ -7,7 +7,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 		#echo $xml->weeklyevents->event->title;
 			foreach($xml->children() as $event)
 			{	 
-			   if($myDate != $event->date){
+			   if($myDate !== $event->date){
 				$myDate = $event->date;
 				$txt .= ($event->date) . "</br>";   
 			   }
