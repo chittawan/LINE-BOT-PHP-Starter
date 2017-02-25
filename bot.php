@@ -68,7 +68,7 @@ if (!is_null($events['events'])) {
 function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	// Build message to reply back
-	if (stripos($text, "หอย") !== false) {
+	if (stripos($text, "ดี") !== false) {
 		//$messages = [[
 		//  'type'=> 'sticker',
 		//  'packageId'=> '1',
@@ -76,9 +76,9 @@ function GetReplyMessage($text,$userId) {
 		//]];
 		$messages = [[
 			'type' => 'text',
-			'text' => 'กุจะพาไปกินตับ'
+			'text' => 'ดี'
 		]];
-	} else if (stripos($text, "ล่าหามัน") !== false) {
+	} else if (stripos($text, "บ้า") !== false) {
 		$messages = [[
 		  'type'=> 'sticker',
 		  'packageId'=> '1',
@@ -87,12 +87,12 @@ function GetReplyMessage($text,$userId) {
 	} else if (stripos($text, "555+") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'ฮาๆ ตับหวานเคยกินมั้ย'
+			'text' => 'ฮาๆ'
 		]];
 	} else if (stripos($text, "ฮาๆ") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'ฮาหมอย หรอยกับตับ'
+			'text' => '555+'
 		]];
 	} else if (stripos($text, "เออ") !== false) {		
 		$messages = [[
@@ -107,17 +107,17 @@ function GetReplyMessage($text,$userId) {
 	}  else if (stripos($text, "เล่นอะไรกัน") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'หาตับให้กุเล่นหน่อย'
+			'text' => 'อะไรก็ได้'
 		]];
 	} else if (stripos($text, "ไปเล่นตรงนู๊น") !== false) {		
 		$messages = [[
 			'type' => 'text',
 			'text' => 'เค้าไล่กุมาเล่นตรงนี้'
 		]];
-	} else if (stripos($text, "พ้อง") !== false) {		
+	} else if (stripos($text, "กำ") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'ตับ ตับ ตับ'
+			'text' => 'กำราย'
 		]];
 	} 
 	return $messages;
