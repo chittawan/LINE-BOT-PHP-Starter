@@ -182,13 +182,19 @@ function GetReplyMessage($text,$userId) {
 	} else if (stripos($text, "FxFac") !== false) {	
 		$xmlFeed = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 		$xml = simplexml_load_file($xmlFeed);
-		foreach($xml->weeklyevents->event as $key => $value)
-		{
-			echo $value;
-		}
+		$msg = '';
+		echo $xml->weeklyevents->event->title;
+			foreach($xml->children() as $event)
+			{	 
+			   $impact = $event->impact;
+				#echo $impact;
+			   if($impact == 'High'){
+				$msg += $event->title +'\r\n';
+			   }
+			}
 		$messages = [[
 			'type' => 'text',
-			'text' => 'test'
+			'text' => '$msg
 		]];
 	} 
 	return $messages;
