@@ -139,6 +139,11 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => 'หาเองเองดิ'
 		]];
+	} else if (stripos($text, "รวย") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'เอามาแบ่งบ้าง'
+		]];
 	} 
 	return $messages;
 }
