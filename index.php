@@ -1,2 +1,8 @@
 <?php
+$xmlFeed = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
+		$xml = simplexml_load_file($xmlFeed);
+		foreach($xml->weeklyevents->event as $key => $value)
+		{
+			echo $value;
+		}
 echo "Hello LINE BOT";
