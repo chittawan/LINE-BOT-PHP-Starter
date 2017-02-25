@@ -5,6 +5,9 @@ $xmlFeed = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 echo $xml->weeklyevents->event->title;
 	foreach($xml->children() as $event)
 	{
-	   echo $event->title;
+	   $impact = $event->impact;
+	   if($impact === 'Hight'){
+		echo $event->title;
+	   }
 	}
 ?>
