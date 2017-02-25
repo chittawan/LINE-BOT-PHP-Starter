@@ -144,6 +144,26 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => 'เอามาแบ่งบ้าง'
 		]];
+	} else if (stripos($text, "ต่อ") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'ต่อไหน ใครรู้บ้าง'
+		]];
+	} else if (stripos($text, "เม") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'เมอยู่บ้าน ม่านปิดอยู่'
+		]];
+	} else if (stripos($text, "เย") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'เยที่่ไหน ใครรู้บ้าง'
+		]];
+	} else if (stripos($text, "ใคร") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'กุไงจะใครละ'
+		]];
 	} 
 	return $messages;
 }
