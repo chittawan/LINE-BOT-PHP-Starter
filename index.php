@@ -6,6 +6,6 @@ $xmlFeed = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 #echo $sxml->weeklyevents->event;
 	foreach($xml->children() as  $event)
 	{
-	   echo $event;
+	   echo $event->title;
 	}
 ?>
