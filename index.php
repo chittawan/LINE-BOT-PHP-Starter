@@ -5,4 +5,3 @@ $xmlFeed = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 		{
 			echo $value;
 		}
-echo "Hello LINE BOT";
