@@ -189,12 +189,12 @@ function GetReplyMessage($text,$userId) {
 			   $impact = $event->impact;
 				#echo $impact;
 			   if($impact == 'High'){
-				$txt .= ($event->title) . '<br/>';
+				$txt .= ($event->title) . '\n';
 			   }
 			}
 		$messages = [[
 			'type' => 'text',
-			'text' => $txt
+			'text' => urlencode($txt)
 		]];
 	} 
 	return $messages;
