@@ -2,9 +2,8 @@
 $xmlFeed = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 		$xml = simplexml_load_file($xmlFeed);
 
-	_dump($xml);
 echo $xml->weeklyevents->event->title;
-	foreach($xml->children() as  $event)
+	foreach($xml->children() as $event)
 	{
 	   echo $event->title;
 	}
