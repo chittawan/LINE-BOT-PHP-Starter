@@ -6,8 +6,8 @@ echo $xml->weeklyevents->event->title;
 	foreach($xml->children() as $event)
 	{	 
 	   $impact = $event->impact;
-		echo $impact;
-	   if($impact === 'High'){
+		#echo $impact;
+	   if($impact == 'High'){
 		echo $event->title;
 	   }
 	}
