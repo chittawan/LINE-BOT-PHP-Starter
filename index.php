@@ -8,7 +8,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 			foreach($xml->children() as $event)
 			{	 
 			   if($myDate != $event->date){
-				$myDate = new DateTime($event->date);
+				$myDate = (string)$event->date;
 				$txt .= ($event->date) . "</br>";   
 			   }
 			   $myImpact = $event->impact;
