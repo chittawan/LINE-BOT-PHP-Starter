@@ -180,21 +180,21 @@ function GetReplyMessage($text,$userId) {
 			'text' => $randNumber
 		]];
 	} else if (stripos($text, "FxFac") !== false) {	
-		$xmlFeed = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
-		$xml = simplexml_load_file($xmlFeed);
-		$msg = '';
+		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
+		$xml = simplexml_load_file($feedUrl);
+		$txt = '';
 		#echo $xml->weeklyevents->event->title;
 			foreach($xml->children() as $event)
 			{	 
 			   $impact = $event->impact;
 				#echo $impact;
 			   if($impact == 'High'){
-				$msg += $event->title +'\r\n';
+				$txt += $event->title +'\r\n';
 			   }
 			}
 		$messages = [[
 			'type' => 'text',
-			'text' => '$msg
+			'text' => $txt
 		]];
 	} 
 	return $messages;
