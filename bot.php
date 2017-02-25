@@ -164,6 +164,13 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => 'กุไงจะใครละ'
 		]];
+	} else if (stripos($text, "ไบ้หวยหน่อย") !== false) {	
+		$digits = 3;
+                $randNumber = rand(pow(10, $digits-1), pow(10, $digits)-1);
+		$messages = [[
+			'type' => 'text',
+			'text' => $randNumber
+		]];
 	} 
 	return $messages;
 }
