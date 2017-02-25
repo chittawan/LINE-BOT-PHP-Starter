@@ -14,7 +14,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 			   $myImpact = $event->impact;
 				#echo $impact;
 			   if($myImpact == 'High'){
-				$txt .= ($event->title) . "</br>";
+				$txt .= ($event->country) .($event->time) . ($event->title) . "</br>";
 			   }
 			}
 echo $txt
