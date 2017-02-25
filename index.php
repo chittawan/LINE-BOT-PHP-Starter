@@ -9,7 +9,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
 			   $impact = $event->impact;
 				#echo $impact;
 			   if($impact == 'High'){
-				$txt .= ($event->title) . "\r\n";
+				$txt .= ($event->title) . "</br>";
 			   }
 			}
 echo $txt
