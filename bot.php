@@ -119,6 +119,16 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => 'กำราย'
 		]];
+	} else if (stripos($text, "คุณคือใคร") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'ผมเป็นบอท'
+		]];
+	} else if (stripos($text, "ไง") !== false) {		
+		$messages = [[
+			'type' => 'text',
+			'text' => 'ชิวๆ'
+		]];
 	} 
 	return $messages;
 }
