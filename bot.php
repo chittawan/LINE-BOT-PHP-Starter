@@ -67,6 +67,7 @@ if (!is_null($events['events'])) {
 }
 function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
+	
 	// Build message to reply back
 	if (stripos($text, "ดี") !== false) {
 		//$messages = [[
@@ -171,12 +172,23 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => $randNumber
 		]];
-	}  else if (stripos($text, "2 ตัว") !== false) {	
+	} else if (stripos($text, "2 ตัว") !== false) {	
 		$digits = 2;
                 $randNumber = rand(pow(10, $digits-1), pow(10, $digits)-1);
 		$messages = [[
 			'type' => 'text',
 			'text' => $randNumber
+		]];
+	} else if (stripos($text, "FxFac") !== false) {	
+		$xmlFeed = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
+		$xml = simplexml_load_file($xmlFeed);
+		foreach($xml->weeklyevents->event as $key => $value)
+		{
+			echo $value;
+		}
+		$messages = [[
+			'type' => 'text',
+			'text' => 'test'
 		]];
 	} 
 	return $messages;
