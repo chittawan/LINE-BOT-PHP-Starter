@@ -1,4 +1,4 @@
 <?php
-$date = new DateTime('2000-01-01');
-echo $date->format('Y-m-d H:i:s');
+$date = new DateTime('28-02-2017');
+echo $date->format('d-m-Y H:i:s');
 ?>
