@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $access_token = 'WrOvUObu3f++FH65SpmKQqkzd31q1HsVgv29G2EYPkye7NdGMp+I0/SeQHXIcjeI27CimIle69IF2uIjxynh4e4Yw2cQkULGEsJiBgvaqQ8agK/PEY/JYc2FT05jWFqTfPX3XCQmFsIZ+M6d9NGB3AdB04t89/1O/w1cDnyilFU=';
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -217,16 +217,24 @@ function GetReplyMessage($text,$userId) {
 		$xml = simplexml_load_file($feedUrl);
 		$txt = '';
 		$myDate = '';
+		$myOldDate = '';
 		#echo $xml->weeklyevents->event->title;
 			foreach($xml->children() as $event)
 			{	 
-			   if($myDate != $event->date){
-				$myDate = (string)$event->date;
-				$txt .= ($event->date) . "\n";
+			  $myDate = (string)$event->date;
+		          $myTime = (string)$event->time;
+			  $date = new DateTime($myDate . ' ' . $myTime);
+			  $date = $date->modify('+7 hours');
+			   if($date->format('d-m-Y') != $myOldDate->format('d-m-Y')){
+								
+				#echo $date->format('d-m-Y H:i:s');
+				#$myDate = $date->format('d-m-Y');
+				$txt .= $date->format('d-m-Y') . "\n";
+				$myOldDate = $date;
 			   }
 				#echo $impact;
 			   if($event->impact == 'High'){
-				$txt .= ($event->country) . ' ' . ($event->time) . ' ' . ($event->title) . "\n";
+				$txt .= ($event->country) . ' ' . ($myOldDate->format('H:i:s')) . ' ' . ($event->title) . "\n";
 			   }
 			}
 		           
