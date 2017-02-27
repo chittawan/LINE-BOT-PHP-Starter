@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $access_token = 'WrOvUObu3f++FH65SpmKQqkzd31q1HsVgv29G2EYPkye7NdGMp+I0/SeQHXIcjeI27CimIle69IF2uIjxynh4e4Yw2cQkULGEsJiBgvaqQ8agK/PEY/JYc2FT05jWFqTfPX3XCQmFsIZ+M6d9NGB3AdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -217,28 +217,10 @@ function GetReplyMessage($text,$userId) {
 		]];
 		
 	} else if (stripos($text, "Cfx Regis") !== false) {	
-
-		//"uri" => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด Account FBS.zip"				  
 		$messages = [[
-			"type" => "template",
-		  	"altText" => "this is a confirm template",
-		  	"template"=> [
-			      "type"=> "confirm",
-			      "text"=> "Are you sure?",
-			      "actions"=> [
-				  [
-				    "type"=> "message",
-				    "label"=> "Yes",
-				    "text"=> "yes"
-				  ],
-				  [
-				    "type"=> "message",
-				    "label"=> "No",
-				    "text"=> "no"
-				  ]
-		      		]
-			  ]
-		]]
+			'type' => 'text',
+			'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด Account FBS.zip"
+		]];
 		
 	} else if (stripos($text, "cfx Fac") !== false) {	
 		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
