@@ -7,7 +7,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 		$xml = simplexml_load_file($feedUrl);
 		$txt = '';
 		$myDate = '';
-		$myOldDate = '01-01-2017';
+		$myOldDate = new DateTime('01-01-2017');
 		#echo $xml->weeklyevents->event->title;
 			foreach($xml->children() as $event)
 			{	 
