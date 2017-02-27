@@ -3,7 +3,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 		$xml = simplexml_load_file($feedUrl);
 		$txt = '';
 		$myDate = '';
-		$myOldDate = DateTime::createFromFormat('d-m-Y', '01-01-2017')
+		$myOldDate = DateTime::createFromFormat('d-m-Y', '01-01-2017');
 		#echo $xml->weeklyevents->event->title;
 			foreach($xml->children() as $event)
 			{	 
@@ -11,13 +11,13 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 		          $myTime = (string)$event->time;
 			  $strTime = $myDate . ' ' . $myTime;
 			  $date =  DateTime::createFromFormat('d-m-Y', $myDate);			  
-			  $date->modify('+7 hours');		
+			  $date->modify('+7 days');		
 			  echo $date->format('d-m-Y');
 			  #if(strtotime($date) <> strtotime($myOldDate)){
 				#echo $date->format('d-m-Y H:i:s');
 				#$myDate = $date->format('d-m-Y');
 				#$txt .= $date->format('d-m-Y') . "\n";
-				$myOldDate = $date;
+				#$myOldDate = $date;
 			   #}
 			   if($event->impact == 'High'){
 				#$txt .= ($event->country) . ' ' . (string)($myOldDate->format('H:ia')) . ' ' . ($event->title) . "\n";
