@@ -41,7 +41,7 @@ if (!is_null($events['events'])) {
 				//	]];
 				//}
 				
-				if (!is_null($messages) && !$shortup) {
+				if (!is_null($messages) && !$shortup == false) {
 				
 					// Make a POST Request to Messaging API to reply to sender
 					
