@@ -216,7 +216,13 @@ function GetReplyMessage($text,$userId) {
 			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
 		]];
 		
-	} else if (stripos($text, "FxFac") !== false) {	
+	} else if (stripos($text, "Cfx Regis") !== false) {	
+		$messages = [[
+			'type' => 'text',
+			'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"
+		]];
+		
+	} else if (stripos($text, "cfx Fac") !== false) {	
 		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 		$xml = simplexml_load_file($feedUrl);
 		$txt = '';
@@ -238,7 +244,7 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => $txt
 		]];
-	} 
+	} 	
 	return $messages;
 }
 echo "OK";
