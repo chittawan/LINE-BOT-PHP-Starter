@@ -25,6 +25,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 				$myOldDate = $date;
 			   }
 				#echo $impact;
+				echo "xxb";
 			   if($event->impact == 'High'){
 				$txt .= ($event->country) . ' ' . ($myOldDate->format('H:ia')) . ' ' . ($event->title) . "\n";
 			   }
