@@ -224,13 +224,13 @@ function GetReplyMessage($text,$userId) {
 			      'type' => 'buttons',
 			      'title' => 'Core Fx',
 			      'text' => 'Register',
-			      'actions' =>[
-				      [(
+			      'actions' => (
+				      [
 				    "type" => "uri",
 				    "label" => "download",
 				    "uri" => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"				  
-			           )]
-			      ]
+			           ]
+			      )
 			]
 		]];
 		
