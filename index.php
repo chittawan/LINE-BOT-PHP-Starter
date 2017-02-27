@@ -9,11 +9,11 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 			{	 
 			  $myDate = (string)$event->date;
 		          $myTime = (string)$event->time;
-			  echo	$myDate . ' ' . $myTime;
-			  $date = new DateTime($myDate . ' ' . $myTime);
-			  $date = $date->modify('+7 hours');
-				echo "a";
-				#echo $date->format('d-m-Y H:ia');
+			  $strTime = $myDate . ' ' . $myTime;
+				
+			  $date = new DateTime($strTime);
+			  $date = $date->modify('+7 hours');				
+			  echo $date->format('d-m-Y H:ia');
 			   #if(1 == 1){
 				#echo $date->format('d-m-Y H:i:s');
 				#$myDate = $date->format('d-m-Y');
