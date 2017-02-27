@@ -71,9 +71,9 @@ if (!is_null($events['events'])) {
 }
 function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
-	if(stripos($shortup, "หุบปาก") !== false){
+	if(stripos($text, "หุบปาก") !== false){
 	   $shortup = TRUE;
-	} else if(stripos($shortup, "อ้าปาก")!== false){
+	} else if(stripos($text, "อ้าปาก")!== false){
 	   $shortup = FALSE;
 	}
 	   
