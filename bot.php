@@ -9,7 +9,7 @@ $events = json_decode($content, true);
 if (empty($GLOBALS['shortup'])) {        
 	$GLOBALS['shortup'] = false;		
     } 
-$shortup = $GLOBALS['shortup'];
+$shortup = (bool)$GLOBALS['shortup'];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
