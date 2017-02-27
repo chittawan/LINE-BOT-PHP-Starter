@@ -200,6 +200,14 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => $randNumber
 		]];				
+	} else if (stripos($text, "Cfx Myinfo") !== false) {	
+		$digits = 2;
+                $randNumber = rand(pow(10, $digits-1), pow(10, $digits)-1);
+		$messages = [[
+			'type' => 'text',
+			'text' => $userId
+		]];
+		
 	} else if (stripos($text, "Cfx Acc") !== false) {	
 		$digits = 2;
                 $randNumber = rand(pow(10, $digits-1), pow(10, $digits)-1);
