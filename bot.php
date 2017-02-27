@@ -77,10 +77,11 @@ function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	if(stripos($text, "หุบปาก") !== false){
 		setcookie($cookie_name,'true'); // 86400 = 1 day
+		$shortup = (bool)($_COOKIE[$cookie_name] == 'true');
 	} else if(stripos($text, "อ้าปาก")!== false){
 		setcookie($cookie_name,'false'); // 86400 = 1 day
-	}
-	$shortup = (bool)$_COOKIE[$cookie_name];
+		$shortup = (bool)($_COOKIE[$cookie_name] == 'true');
+	}	
 	   
 	// Build message to reply back
 	if (stripos($text, "ดี") !== false) {
