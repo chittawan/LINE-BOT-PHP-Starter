@@ -8,7 +8,9 @@ $events = json_decode($content, true);
 
 $cookie_name = "shortup";
 $cookie_value = false;
-setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+if(!isset($_COOKIE[$cookie_name])) {
+   setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+}
 
 $shortup = (bool)$_COOKIE[$cookie_name];
 // Validate parsed JSON data
