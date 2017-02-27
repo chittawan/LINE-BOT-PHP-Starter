@@ -6,9 +6,10 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-if (empty($shortup)) {
-        $shortup = false;
+if (empty($GLOBALS['shortup'])) {        
+	$GLOBALS['shortup'] = false;		
     } 
+$shortup = $GLOBALS['shortup'];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -41,7 +42,7 @@ if (!is_null($events['events'])) {
 				//	]];
 				//}
 				
-				if (!is_null($messages) && $shortup === false) {
+				if (!is_null($messages) && (!$shortup) ) {
 				
 					// Make a POST Request to Messaging API to reply to sender
 					
@@ -72,9 +73,9 @@ if (!is_null($events['events'])) {
 function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	if(stripos($text, "หุบปาก") !== false){
-	   $shortup = true;
+	   $GLOBALS['shortup'] = true;
 	} else if(stripos($text, "อ้าปาก")!== false){
-	   $shortup = false;
+	   $GLOBALS['shortup'] = false;
 	}
 	   
 	// Build message to reply back
