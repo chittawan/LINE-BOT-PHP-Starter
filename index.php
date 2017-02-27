@@ -16,9 +16,9 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 			  echo	$myDate . ' ' . $myTime;
 			  $date = new DateTime($myDate . ' ' . $myTime);
 			  $date = $date->modify('+7 hours');
-				echo $date->format('d-m-Y H:i:s');
+				echo $date->format('d-m-Y H:ia');
 			   if($myOldDate == '' || $date->format('d-m-Y') != $myOldDate->format('d-m-Y')){
-								
+							echo 'xxx';
 				#echo $date->format('d-m-Y H:i:s');
 				#$myDate = $date->format('d-m-Y');
 				$txt .= $date->format('d-m-Y') . "\n";
@@ -26,7 +26,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 			   }
 				#echo $impact;
 			   if($event->impact == 'High'){
-				$txt .= ($event->country) . ' ' . ($myOldDate->format('H:i:s')) . ' ' . ($event->title) . "\n";
+				$txt .= ($event->country) . ' ' . ($myOldDate->format('H:ia')) . ' ' . ($event->title) . "\n";
 			   }
 			}
 
