@@ -218,14 +218,14 @@ function GetReplyMessage($text,$userId) {
 		
 	} else if (stripos($text, "Cfx Regis") !== false) {	
 
-		#"uri" => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด Account FBS.zip"				  
+		//"uri" => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด Account FBS.zip"				  
 		$messages = [[
 			"type" => "template",
 		  	"altText" => "this is a confirm template",
 		  	"template"=> [
 			      "type"=> "confirm",
 			      "text"=> "Are you sure?",
-			      "actions"=> (
+			      "actions"=> [
 				  [
 				    "type"=> "message",
 				    "label"=> "Yes",
@@ -236,7 +236,7 @@ function GetReplyMessage($text,$userId) {
 				    "label"=> "No",
 				    "text"=> "no"
 				  ]
-		      		)
+		      		]
 			  ]
 		]]
 		
