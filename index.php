@@ -1,8 +1,4 @@
 <?php
-$date = new DateTime('28-02-2017');
-$date->modify('+7 hours');
-echo $date->format('d-m-Y H:i:s');
-
 $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 		$xml = simplexml_load_file($feedUrl);
 		$txt = '';
