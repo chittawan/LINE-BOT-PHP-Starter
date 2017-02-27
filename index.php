@@ -12,7 +12,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 			  $strTime = $myDate . ' ' . $myTime;
 				
 			  $date = new DateTime($strTime);
-			  $date->modify('+7 hour');		
+			  #$date->modify('+7 hour');		
 			  
 			  echo $date->format('d-m-Y H:ia');
 			   #if(1 == 1){
