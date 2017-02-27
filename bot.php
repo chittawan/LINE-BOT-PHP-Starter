@@ -219,16 +219,18 @@ function GetReplyMessage($text,$userId) {
 	} else if (stripos($text, "Cfx Regis") !== false) {	
 		$messages = [[
 			'type' => 'template',
-			'altText' => '',
+			'altText' => 'this is a confirm template',
 			'template' => [
 			      'type' => 'buttons',
 			      'title' => 'Core Fx',
 			      'text' => 'Register',
-			      'actions' =>[[ 				      
+			      'actions' =>[
+				      [(
 				    "type" => "uri",
 				    "label" => "download",
 				    "uri" => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"				  
-			       ]]
+			           )]
+			      ]
 			]
 		]];
 		
