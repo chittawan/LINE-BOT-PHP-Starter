@@ -14,12 +14,12 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 			  echo $date->format('d-m-Y');
 			  $date->modify('+7 hour');		
 			  echo $date->format('d-m-Y');
-			   if(strtotime($date) <> strtotime($myOldDate)){
+			  #if(strtotime($date) <> strtotime($myOldDate)){
 				#echo $date->format('d-m-Y H:i:s');
 				#$myDate = $date->format('d-m-Y');
-				$txt .= $date->format('d-m-Y') . "\n";
+				#$txt .= $date->format('d-m-Y') . "\n";
 				$myOldDate = $date;
-			   }
+			   #}
 			   if($event->impact == 'High'){
 				#$txt .= ($event->country) . ' ' . (string)($myOldDate->format('H:ia')) . ' ' . ($event->title) . "\n";
 			   }
