@@ -5,6 +5,7 @@ $access_token = 'WrOvUObu3f++FH65SpmKQqkzd31q1HsVgv29G2EYPkye7NdGMp+I0/SeQHXIcje
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
+$shortup = false;
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -37,7 +38,7 @@ if (!is_null($events['events'])) {
 				//	]];
 				//}
 				
-				if (!is_null($messages)) {
+				if (!is_null($messages) && !$shortup) {
 				
 					// Make a POST Request to Messaging API to reply to sender
 					
@@ -67,7 +68,12 @@ if (!is_null($events['events'])) {
 }
 function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
-	
+	if(stripos($shortup, "หุบปาก"){
+	   $shortup = true;
+	} else if(stripos($shortup, "อ้าปาก"){
+	   $shortup = false;
+	}
+	   
 	// Build message to reply back
 	if (stripos($text, "ดี") !== false) {
 		//$messages = [[
