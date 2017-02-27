@@ -6,13 +6,17 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-$cookie_name = "shortup";
-$cookie_value = 'false';
-if(!isset($_COOKIE[$cookie_name])) {
-   setcookie($cookie_name, $cookie_value); // 86400 = 1 day
+if(file_exists($myfile)){
+   $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+   fwrite($myfile, 'false');
+   fclose($myfile);
 }
 
-$shortup = (bool)$_COOKIE[$cookie_name];
+$myfile = fopen("text.txt", "r") or die("Unable to open file!");
+$shortup = fgets($myfile);
+fclose($myfile);
+
+#$shortup = (bool)$_COOKIE[$cookie_name];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -76,11 +80,13 @@ if (!is_null($events['events'])) {
 function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	if(stripos($text, "หุบปาก") !== false){
-		setcookie($cookie_name,'true'); // 86400 = 1 day
-		$shortup = (bool)($_COOKIE[$cookie_name] == 'true');
+		$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+		fwrite($myfile, 'true');
+		fclose($myfile);
 	} else if(stripos($text, "อ้าปาก")!== false){
-		setcookie($cookie_name,'false'); // 86400 = 1 day
-		$shortup = (bool)($_COOKIE[$cookie_name] == 'true');
+		$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+		fwrite($myfile, 'false');
+		fclose($myfile);
 	}	
 	   
 	// Build message to reply back
