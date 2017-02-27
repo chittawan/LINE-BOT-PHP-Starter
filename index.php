@@ -20,7 +20,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 				$myOldDate = $date;
 			   }
 			   if($event->impact == 'High'){
-				$txt .= ($event->country) . ' ' . (string)($myOldDate->format('H:ia')) . ' ' . ($event->title) . "</br>";
+				$txt .= ($event->country) . ' ' . (string)($date->format('H:ia')) . ' ' . ($event->title) . "</br>";
 			   }
 			}
 
