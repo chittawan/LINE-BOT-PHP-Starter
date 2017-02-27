@@ -1,12 +1,6 @@
 <?php
-if(!file_exists("text.txt")){
-   $myfile = fopen("text.txt", "w") or die("Unable to open file!");
-   fwrite($myfile, 'false');
-   fclose($myfile);
-}
-$myfile = fopen("text.txt", "r") or die("Unable to open file!");
-$shortup = (bool)fgets($myfile);
-fclose($myfile);
-
-echo $shortup
+$date = '02-27-2017'
+date_date_set($date,$mydate);
+date_format($date,"d-m-y");
+echo $date
 ?>
