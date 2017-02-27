@@ -180,7 +180,7 @@ function GetReplyMessage($text,$userId) {
 			'text' => $randNumber
 		]];
 	} else if (stripos($text, "FxFac") !== false) {	
-		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
+		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 		$xml = simplexml_load_file($feedUrl);
 		$txt = '';
 		$myDate = '';
