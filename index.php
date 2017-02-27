@@ -21,13 +21,13 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 				echo "xxx";
 				#echo $date->format('d-m-Y H:i:s');
 				#$myDate = $date->format('d-m-Y');
-				$txt .= (string)$date->format('d-m-Y') . "\n";
+				#$txt .= $date->format('d-m-Y') . "\n";
 				$myOldDate = $date;
 			   #}
 				#echo $impact;
 				echo "xxb";
 			   if($event->impact == 'High'){
-				$txt .= ($event->country) . ' ' . (string)($myOldDate->format('H:ia')) . ' ' . ($event->title) . "\n";
+				#$txt .= ($event->country) . ' ' . (string)($myOldDate->format('H:ia')) . ' ' . ($event->title) . "\n";
 			   }
 			}
 
