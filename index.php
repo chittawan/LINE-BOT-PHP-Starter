@@ -1,21 +1,12 @@
 <?php
-$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
-		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml';
-		$xml = simplexml_load_file($feedUrl);
-		$txt = '';
-		$myDate = '';
-		#echo $xml->weeklyevents->event->title;
-			foreach($xml->children() as $event)
-			{	 
-			   if($myDate != $event->date){
-				$myDate = (string)$event->date;
-				$txt .= ($event->date) . "</br>";   
-			   }
-			   $myImpact = $event->impact;
-				#echo $impact;
-			   if($myImpact == 'High'){
-				$txt .= ($event->country) . ' ' . ($event->time) . ' '. ($event->title) . "</br>";
-			   }
-			}
-echo $txt
+if(!file_exists("text.txt")){
+   $myfile = fopen("text.txt", "w") or die("Unable to open file!");
+   fwrite($myfile, 'false');
+   fclose($myfile);
+}
+$myfile = fopen("text.txt", "r") or die("Unable to open file!");
+$shortup = (bool)fgets($myfile);
+fclose($myfile);
+
+echo $shortup
 ?>
