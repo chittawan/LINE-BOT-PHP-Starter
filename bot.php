@@ -6,10 +6,11 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-if (empty($GLOBALS['shortup'])) {        
-	$GLOBALS['shortup'] = false;		
-    } 
-$shortup = (bool)$GLOBALS['shortup'];
+$cookie_name = "shortup";
+$cookie_value = false;
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+
+$shortup = (bool)$_COOKIE[$cookie_name];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -73,9 +74,9 @@ if (!is_null($events['events'])) {
 function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	if(stripos($text, "หุบปาก") !== false){
-	   $GLOBALS['shortup'] = true;
+		setcookie($cookie_name,true, time() + (86400 * 30), "/"); // 86400 = 1 day
 	} else if(stripos($text, "อ้าปาก")!== false){
-	   $GLOBALS['shortup'] = false;
+		setcookie($cookie_name,false, time() + (86400 * 30), "/"); // 86400 = 1 day
 	}
 	   
 	// Build message to reply back
