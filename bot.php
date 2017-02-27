@@ -222,7 +222,6 @@ function GetReplyMessage($text,$userId) {
 			'altText' => '',
 			'template' => {
 			      'type' => 'buttons',
-			      #"thumbnailImageUrl": "",
 			      'title' => 'Core Fx',
 			      'text' => 'Register',
 			      'actions' => [
