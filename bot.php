@@ -218,9 +218,6 @@ function GetReplyMessage($text,$userId) {
 		
 	} else if (stripos($text, "Cfx Regis") !== false) {	
 		$messages = [[
-			#'type' => 'text',
-			#'originalContentUrl' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip",
-			#'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"
 			"type": "template",
 			  "altText": "",
 			  "template": {
