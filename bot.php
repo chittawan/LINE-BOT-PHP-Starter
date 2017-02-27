@@ -7,7 +7,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 if (empty($shortup)) {
-        $shortup = FALSE;
+        $shortup = false;
     } 
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
@@ -41,7 +41,7 @@ if (!is_null($events['events'])) {
 				//	]];
 				//}
 				
-				if (!is_null($messages) && !$shortup === FALSE) {
+				if (!is_null($messages) && $shortup === false) {
 				
 					// Make a POST Request to Messaging API to reply to sender
 					
