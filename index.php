@@ -12,8 +12,8 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 			  $strTime = $myDate . ' ' . $myTime;
 			  $date =  DateTime::createFromFormat('d-m-Y', $myDate);
 			  $date->modify('+7 hour');		
-			  echo (string)$date->format('d-m-Y');
-			   if((string)$date->format('d-m-Y') <> (string)$myOldDate->format('d-m-Y')){
+			  echo $date->format('d-m-Y');
+			   if(strtotime($date) <> strtotime($myOldDate)){
 				#echo $date->format('d-m-Y H:i:s');
 				#$myDate = $date->format('d-m-Y');
 				$txt .= $date->format('d-m-Y') . "\n";
