@@ -199,7 +199,15 @@ function GetReplyMessage($text,$userId) {
 		$messages = [[
 			'type' => 'text',
 			'text' => $randNumber
+		]];				
+	} else if (stripos($text, "Cfx Acc") !== false) {	
+		$digits = 2;
+                $randNumber = rand(pow(10, $digits-1), pow(10, $digits)-1);
+		$messages = [[
+			'type' => 'text',
+			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
 		]];
+		
 	} else if (stripos($text, "FxFac") !== false) {	
 		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 		$xml = simplexml_load_file($feedUrl);
