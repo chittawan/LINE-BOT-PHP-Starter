@@ -218,8 +218,24 @@ function GetReplyMessage($text,$userId) {
 		
 	} else if (stripos($text, "Cfx Regis") !== false) {	
 		$messages = [[
-			'type' => 'text',
-			'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"
+			#'type' => 'text',
+			#'originalContentUrl' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip",
+			#'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"
+			"type": "template",
+			  "altText": "",
+			  "template": {
+			      "type": "buttons",
+			      "thumbnailImageUrl": "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip",
+			      "title": "Core Fx",
+			      "text": "Register",
+			      "actions": [
+				  {
+				    "type": "uri",
+				    "label": "download",
+				    "uri": "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"
+				  }
+			      ]
+			  }
 		]];
 		
 	} else if (stripos($text, "cfx Fac") !== false) {	
