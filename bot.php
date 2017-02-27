@@ -80,6 +80,7 @@ function GetReplyMessage($text,$userId) {
 	} else if(stripos($text, "อ้าปาก")!== false){
 		setcookie($cookie_name,false, time() + (86400 * 30), "/"); // 86400 = 1 day
 	}
+	$shortup = (bool)$_COOKIE[$cookie_name];
 	   
 	// Build message to reply back
 	if (stripos($text, "ดี") !== false) {
