@@ -208,32 +208,10 @@ function GetReplyMessage($text,$userId) {
 		]];
 		
 	} else if (stripos($text, "Cfx Regis") !== false) {	
-		#$messages = [[
-		#	'type' => 'text',
-		#	'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด Account FBS.zip"
-		#]];
-
-$messages = [{
-  "type": "template",
-  "altText": "this is a confirm template",
-  "template": {
-      "type": "confirm",
-      "text": "Are you sure?",
-      "actions": [
-          {
-            "type": "message",
-            "label": "Yes",
-            "text": "yes"
-          },
-          {
-            "type": "message",
-            "label": "No",
-            "text": "no"
-          }
-      ]
-  }
-}]
-		
+		$messages = [[
+			'type' => 'text',
+			'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด Account FBS.zip"
+		]];
 	} else if (stripos($text, "cfx Fac") !== false) {	
 		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 		$xml = simplexml_load_file($feedUrl);
