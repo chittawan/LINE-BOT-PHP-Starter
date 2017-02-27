@@ -14,7 +14,7 @@ $feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 			  $date->modify('+7 hours');		
 			  
 			  if((string)$date->format('d-m-Y') != (string)$myOldDate->format('d-m-Y')){
-				echo $date->format('d-m-Y H:i:s');
+				#echo $date->format('d-m-Y H:i:s');
 				#$myDate = $date->format('d-m-Y');
 				$txt .= (string)$date->format('d-m-Y') . "</br>";
 				$myOldDate = $date;
