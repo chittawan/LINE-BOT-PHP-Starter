@@ -8,7 +8,7 @@ $events = json_decode($content, true);
 
 if(!file_exists("text.txt")){
    $myfile = fopen("text.txt", "w") or die("Unable to open file!");
-   fwrite($myfile, 'false');
+   fwrite($myfile, 0);
    fclose($myfile);
 }
 
@@ -81,11 +81,11 @@ function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	if(stripos($text, "หุบปาก") !== false){
 		$myfile = fopen("text.txt", "w") or die("Unable to open file!");
-		fwrite($myfile, 'true');
+		fwrite($myfile, 1);
 		fclose($myfile);
 	} else if(stripos($text, "อ้าปาก")!== false){
 		$myfile = fopen("text.txt", "w") or die("Unable to open file!");
-		fwrite($myfile, 'false');
+		fwrite($myfile, 0);
 		fclose($myfile);
 	}	
 	   
