@@ -6,7 +6,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-if(file_exists($myfile)){
+if(!file_exists($myfile)){
    $myfile = fopen("text.txt", "w") or die("Unable to open file!");
    fwrite($myfile, 'false');
    fclose($myfile);
