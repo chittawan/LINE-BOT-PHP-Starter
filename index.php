@@ -1,6 +1,4 @@
 <?php
-$mydate = '02-27-2017';
-$date = date_create($mydate);
-$date->format("d-m-Y");
-echo $date;
+$date = new DateTime('2000-01-01');
+echo $date->format('Y-m-d H:i:s');
 ?>
