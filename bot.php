@@ -217,9 +217,14 @@ function GetReplyMessage($text,$userId) {
 		]];
 		
 	} else if (stripos($text, "Cfx Regis") !== false) {	
+		#$messages = [[
+		#	'type' => 'text',
+		#	'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"
+		#]];
+
 		$messages = [[
 			'type' => 'text',
-			'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"
+			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
 		]];
 		
 	} else if (stripos($text, "cfx Fac") !== false) {	
@@ -240,10 +245,26 @@ function GetReplyMessage($text,$userId) {
 			   }
 			}
 		           
-		$messages = [[
-			'type' => 'text',
-			'text' => $txt
-		]];
+		$messages = {
+  "type": "template",
+  "altText": "this is a confirm template",
+  "template": {
+      "type": "confirm",
+      "text": "Are you sure?",
+      "actions": [
+          {
+            "type": "message",
+            "label": "Yes",
+            "text": "yes"
+          },
+          {
+            "type": "message",
+            "label": "No",
+            "text": "no"
+          }
+      ]
+  }
+}
 	} 	
 	return $messages;
 }
