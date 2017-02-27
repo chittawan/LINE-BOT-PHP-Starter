@@ -41,7 +41,7 @@ if (!is_null($events['events'])) {
 				//	]];
 				//}
 				
-				if (!is_null($messages) && !$shortup) {
+				if (!is_null($messages) && $shortup === false) {
 				
 					// Make a POST Request to Messaging API to reply to sender
 					
@@ -72,9 +72,9 @@ if (!is_null($events['events'])) {
 function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	if(stripos($text, "หุบปาก") !== false){
-	   $shortup = TRUE;
+	   $shortup = true;
 	} else if(stripos($text, "อ้าปาก")!== false){
-	   $shortup = FALSE;
+	   $shortup = false;
 	}
 	   
 	// Build message to reply back
