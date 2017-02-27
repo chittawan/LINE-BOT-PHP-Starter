@@ -1,21 +1,17 @@
 ﻿<?php
 $access_token = 'WrOvUObu3f++FH65SpmKQqkzd31q1HsVgv29G2EYPkye7NdGMp+I0/SeQHXIcjeI27CimIle69IF2uIjxynh4e4Yw2cQkULGEsJiBgvaqQ8agK/PEY/JYc2FT05jWFqTfPX3XCQmFsIZ+M6d9NGB3AdB04t89/1O/w1cDnyilFU=';
-
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-
 if(!file_exists("text.txt")){
    $myfile = fopen("text.txt", "w") or die("Unable to open file!");
    fwrite($myfile, 0);
    fclose($myfile);
 }
-
 $myfile = fopen("text.txt", "r") or die("Unable to open file!");
 $shortup = (bool)fgets($myfile);
 fclose($myfile);
-
 #$shortup = (bool)$_COOKIE[$cookie_name];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
@@ -30,17 +26,14 @@ if (!is_null($events['events'])) {
 			elseif ($event['source']['type'] == 'group') {
 				$userId = $event['source']['groupId'];			
 			}
-
 			// Get text sent
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
 			//if (stripos($text, "หอย") !== false) {
 	
 				//if ($userId == $SSCGroupId || $userId == $TestGroupId || $userId == $PaeUserId) {
 					$messages = GetReplyMessage($text,$userId);
-
 				//} 
 				//elseif (stripos($text, "userid") !== false) {
 				//	$messages = [[
@@ -60,7 +53,6 @@ if (!is_null($events['events'])) {
 					];
 					$post = json_encode($data);
 					$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
 					$ch = curl_init($url);
 					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -69,7 +61,6 @@ if (!is_null($events['events'])) {
 					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 					$result = curl_exec($ch);
 					curl_close($ch);
-
 					echo $result . "\r\n";
 				}
 				
@@ -219,13 +210,29 @@ function GetReplyMessage($text,$userId) {
 	} else if (stripos($text, "Cfx Regis") !== false) {	
 		#$messages = [[
 		#	'type' => 'text',
-		#	'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"
+		#	'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด Account FBS.zip"
 		#]];
 
-		$messages = [[
-			'type' => 'text',
-			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
-		]];
+$messages = [{
+  "type": "template",
+  "altText": "this is a confirm template",
+  "template": {
+      "type": "confirm",
+      "text": "Are you sure?",
+      "actions": [
+          {
+            "type": "message",
+            "label": "Yes",
+            "text": "yes"
+          },
+          {
+            "type": "message",
+            "label": "No",
+            "text": "no"
+          }
+      ]
+  }
+}]
 		
 	} else if (stripos($text, "cfx Fac") !== false) {	
 		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
@@ -245,26 +252,10 @@ function GetReplyMessage($text,$userId) {
 			   }
 			}
 		           
-		$messages = {
-  "type": "template",
-  "altText": "this is a confirm template",
-  "template": {
-      "type": "confirm",
-      "text": "Are you sure?",
-      "actions": [
-          {
-            "type": "message",
-            "label": "Yes",
-            "text": "yes"
-          },
-          {
-            "type": "message",
-            "label": "No",
-            "text": "no"
-          }
-      ]
-  }
-}
+		$messages = [[
+			'type' => 'text',
+			'text' => $txt
+		]];
 	} 	
 	return $messages;
 }
