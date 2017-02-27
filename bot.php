@@ -218,14 +218,14 @@ function GetReplyMessage($text,$userId) {
 		
 	} else if (stripos($text, "Cfx Regis") !== false) {	
 		$messages = [[
-			"type" => "template",
-			"altText" => "",
-			"template" => {
-			      "type" => "buttons",
+			'type' => 'template',
+			'altText' => '',
+			'template' => {
+			      'type' => 'buttons',
 			      #"thumbnailImageUrl": "",
-			      "title" => "Core Fx",
-			      "text" => "Register",
-			      "actions" => [
+			      'title' => 'Core Fx',
+			      'text' => 'Register',
+			      'actions' => [
 				  {
 				    "type" => "uri",
 				    "label" => "download",
