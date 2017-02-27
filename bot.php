@@ -6,14 +6,14 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-if(!file_exists($myfile)){
+if(!file_exists("text.txt")){
    $myfile = fopen("text.txt", "w") or die("Unable to open file!");
    fwrite($myfile, 'false');
    fclose($myfile);
 }
 
 $myfile = fopen("text.txt", "r") or die("Unable to open file!");
-$shortup = fgets($myfile);
+$shortup = (bool)fgets($myfile);
 fclose($myfile);
 
 #$shortup = (bool)$_COOKIE[$cookie_name];
