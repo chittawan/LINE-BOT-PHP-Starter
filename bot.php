@@ -225,7 +225,7 @@ function GetReplyMessage($text,$userId) {
 			      #"thumbnailImageUrl": "",
 			      "title" => "Core Fx",
 			      "text" => "Register",
-			      "actions" = [
+			      "actions" => [
 				  {
 				    "type" => "uri",
 				    "label" => "download",
