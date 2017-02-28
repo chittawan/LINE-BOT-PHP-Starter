@@ -207,6 +207,62 @@ function GetReplyMessage($text,$userId) {
 			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
 		]];
 		
+	} else if (stripos($text, "Cfx x2") !== false) {	
+		$messages = [[
+				 "type"=> "template",
+				  "altText"=> "this is a carousel template",
+				  "template"=> [
+				      "type"=> "carousel",
+				      "columns"=> array(
+					  [
+					    "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/x1.JPG",
+					    "title"=> "this is menu",
+					    "text"=> "description",
+					    "actions"=> array(
+						[
+						    "type"=> "postback",
+						    "label"=> "Buy",
+						    "data"=> "action=buy&itemid=111"
+						],
+						[
+						    "type"=> "postback",
+						    "label"=> "Add to cart",
+						    "data"=> "action=add&itemid=111"
+						],
+						[
+						    "type"=> "uri",
+						    "label"=> "View detail",
+						    "uri"=> "https://fathomless-anchorage-14853.herokuapp.com/x1.JPG",
+						]
+					    )
+					  ],
+					  [
+					    "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/x2.JPG",
+					    "title"=> "this is menu",
+					    "text"=> "description",
+					    "actions"=> array(
+						[
+						    "type"=> "postback",
+						    "label"=> "Buy",
+						    "data"=> "action=buy&itemid=222"
+						],
+						[
+						    "type"=> "postback",
+						    "label"=> "Add to cart",
+						    "data"=> "action=add&itemid=222"
+						],
+						[
+						    "type"=> "uri",
+						    "label"=> "View detail",
+						    "uri"=> "https://fathomless-anchorage-14853.herokuapp.com/x2.JPG",
+						]
+					    )
+					  ]
+				      )
+				  ]
+
+		]];
+		
 	} else if (stripos($text, "Cfx xy") !== false) {	
 		$messages = [[
 				  "type"=> "template",
