@@ -210,7 +210,7 @@ function GetReplyMessage($text,$userId) {
 	} else if (stripos($text, "Cfx xx") !== false) {	
 		$messages = [[
 				  "type"=> "template",
-				  #"altText"=> "คุณเป็นเกย์ใช่มั้ย",
+				  "altText"=> "คุณเป็นเกย์ใช่มั้ย",
 				  "template"=> [
 				      "type"=> "confirm",
 				      "text"=> "คุณเป็นเกย์ใช่มั้ย",
