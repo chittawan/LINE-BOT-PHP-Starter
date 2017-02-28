@@ -215,7 +215,7 @@ function GetReplyMessage($text,$userId) {
 				      "type"=> "carousel",
 				      "columns"=> array(
 					  [
-					    "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/x1.JPG",
+					    "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/x1.jpg",
 					    "title"=> "this is menu",
 					    "text"=> "description",
 					    "actions"=> array(
@@ -232,12 +232,12 @@ function GetReplyMessage($text,$userId) {
 						[
 						    "type"=> "uri",
 						    "label"=> "View detail",
-						    "uri"=> "https://fathomless-anchorage-14853.herokuapp.com/x1.JPG",
+						    "uri"=> "https://fathomless-anchorage-14853.herokuapp.com/x1.jpg",
 						]
 					    )
 					  ],
 					  [
-					    "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/x2.JPG",
+					    "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/x2.jpg",
 					    "title"=> "this is menu",
 					    "text"=> "description",
 					    "actions"=> array(
@@ -254,7 +254,7 @@ function GetReplyMessage($text,$userId) {
 						[
 						    "type"=> "uri",
 						    "label"=> "View detail",
-						    "uri"=> "https://fathomless-anchorage-14853.herokuapp.com/x2.JPG",
+						    "uri"=> "https://fathomless-anchorage-14853.herokuapp.com/x2.jpg",
 						]
 					    )
 					  ]
