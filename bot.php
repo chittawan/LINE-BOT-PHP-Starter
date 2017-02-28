@@ -211,7 +211,7 @@ function GetReplyMessage($text,$userId) {
 		$messages = [[
 					  "type"=> "template",
 					  "altText"=> "this is a buttons template",
-					  "template"=> [
+					  "template"=> array(
 					      "type"=> "buttons",
 					      "thumbnailImageUrl"=> "https=>//example.com/bot/images/image.jpg",
 					      "title"=> "Menu",
@@ -233,7 +233,7 @@ function GetReplyMessage($text,$userId) {
 						    "uri"=> "http=>//example.com/page/123"
 						  ]
 					      )
-					  ]
+					  )
 		]];
 		
 	} else if (stripos($text, "Cfx Regis") !== false) {	
