@@ -227,9 +227,9 @@ function GetReplyMessage($text,$userId) {
 					    "label"=> "No",
 					    "text"=> "no"
 					  ],[
-					    "type": "uri",
-					    "label": "View detail",
-					    "uri": "https://www.dropbox.com/sh/i7jfxjntjldsglo/AAAufjP0Q8jg5SHJl6yJZUv6a?dl=0"
+					    "type"=> "uri",
+					    "label"=> "View detail",
+					    "uri"=> "https://www.dropbox.com/sh/i7jfxjntjldsglo/AAAufjP0Q8jg5SHJl6yJZUv6a?dl=0"
 					  ]
 				      )
 				  ]
