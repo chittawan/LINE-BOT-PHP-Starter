@@ -213,7 +213,7 @@ function GetReplyMessage($text,$userId) {
 				  "altText"=> "this is a buttons template",
 				  "template"=> [
 				      "type"=> "buttons",
-				      "thumbnailImageUrl"=> "https=>//example.com/bot/images/image.jpg",
+				      "thumbnailImageUrl"=> "https://example.com/bot/images/image.jpg",
 				      "title"=> "Menu",
 				      "text"=> "Please select",
 				      "actions"=> array(
@@ -232,7 +232,7 @@ function GetReplyMessage($text,$userId) {
 
 		]];
 		
-	} else if (stripos($text, "Cfx ark") !== false) {
+	} else if (stripos($text, "Cfx ask") !== false) {
 		$splitStr = explode('#',$text);
 		if(count($splitStr) >= 4){
 			$messages = [[
