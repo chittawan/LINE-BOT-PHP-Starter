@@ -232,28 +232,36 @@ function GetReplyMessage($text,$userId) {
 
 		]];
 		
-	} else if (stripos($text, "Cfx xx") !== false) {	
-		$messages = [[
-				  "type"=> "template",
-				  "altText"=> "คุณเป็นเกย์ใช่มั้ย",
-				  "template"=> [
-				      "type"=> "confirm",
-				      "text"=> "คุณเป็นเกย์ใช่มั้ย",
-				      "actions"=> array(
-					  [
-					    "type"=> "message",
-					    "label"=> "Yes",
-					    "text"=> "yes"
-					  ],
-					  [
-					    "type"=> "message",
-					    "label"=> "No",
-					    "text"=> "no"
+	} else if (stripos($text, "Cfx ark") !== false) {
+		$splitStr = explode('#',$text);
+		if(count($splitStr) >= 4){
+			$messages = [[
+					  "type"=> "template",
+					  "altText"=> $splitStr[1],
+					  "template"=> [
+					      "type"=> "confirm",
+					      "text"=> $splitStr[1],
+					      "actions"=> array(
+						  [
+						    "type"=> "message",
+						    "label"=> $splitStr[2],
+						    "text"=> $splitStr[2]
+						  ],
+						  [
+						    "type"=> "message",
+						    "label"=> $splitStr[3],
+						    "text"=> $splitStr[3]
+						  ]
+					      )
 					  ]
-				      )
-				  ]
 
+			]];
+		} else {
+			$messages = [[
+			'type' => 'text',
+			'text' => "ผมไม่เข้าใจ"
 		]];
+		}
 		
 	} else if (stripos($text, "Cfx football") !== false) {	
 		$messages = [[
