@@ -209,31 +209,25 @@ function GetReplyMessage($text,$userId) {
 		
 	} else if (stripos($text, "Cfx xx") !== false) {	
 		$messages = [[
-					  "type"=> "template",
-					  "altText"=> "this is a buttons template",
-					  "template"=> array(
-					      "type"=> "buttons",
-					      "thumbnailImageUrl"=> "https=>//example.com/bot/images/image.jpg",
-					      "title"=> "Menu",
-					      "text"=> "Please select",
-					      "actions"=> array(
-						  [
-						    "type"=> "postback",
-						    "label"=> "Buy",
-						    "data"=> "action=buy&itemid=123"
-						  ],
-						  [
-						    "type"=> "postback",
-						    "label"=> "Add to cart",
-						    "data"=> "action=add&itemid=123"
-						  ],
-						  [
-						    "type"=> "uri",
-						    "label"=> "View detail",
-						    "uri"=> "http=>//example.com/page/123"
-						  ]
-					      )
-					  )
+				  "type"=> "template",
+				  "altText"=> "this is a confirm template",
+				  "template"=> [
+				      "type"=> "confirm",
+				      "text"=> "Are you sure?",
+				      "actions"=> array(
+					  [
+					    "type"=> "message",
+					    "label"=> "Yes",
+					    "text"=> "yes"
+					  ],
+					  [
+					    "type"=> "message",
+					    "label"=> "No",
+					    "text"=> "no"
+					  ]
+				      )
+				  ]
+
 		]];
 		
 	} else if (stripos($text, "Cfx Regis") !== false) {	
