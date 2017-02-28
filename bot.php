@@ -207,6 +207,35 @@ function GetReplyMessage($text,$userId) {
 			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
 		]];
 		
+	} else if (stripos($text, "Cfx toms2") !== false) {	
+		$messages = [[
+				  "type"=> "template",
+				  "altText"=> "this is a buttons template",
+				  "template"=> [
+				      "type"=> "buttons",
+				      "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/login.JPG",
+				      "title"=> "Menu",
+				      "text"=> "Please select",
+				      "actions"=> array(
+					  [
+					    "type"=> "message",
+					    "label"=> "Yes",
+					    "text"=> "yes"
+					  ],
+					  [
+					    "type"=> "message",
+					    "label"=> "No",
+					    "text"=> "no"
+					  ],[
+					    "type"=> "uri",
+					    "label"=> "View detail",
+					    "uri"=> "http://tomsdev.apps.thaibev.com/Toms2"
+					  ]
+				      )
+				  ]
+
+		]];
+		
 	} else if (stripos($text, "Cfx x2") !== false) {	
 		$messages = [[
 				 "type"=> "template",
