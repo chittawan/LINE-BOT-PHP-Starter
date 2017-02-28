@@ -210,23 +210,13 @@ function GetReplyMessage($text,$userId) {
 	} else if (stripos($text, "Cfx toms2") !== false) {	
 		$messages = [[
 				  "type"=> "template",
-				  "altText"=> "this is a buttons template",
+				  "altText"=> "TOMS2 Demo",
 				  "template"=> [
 				      "type"=> "buttons",
 				      "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/login.JPG",
-				      "title"=> "Menu",
-				      "text"=> "Please select",
-				      "actions"=> array(
-					  [
-					    "type"=> "message",
-					    "label"=> "Yes",
-					    "text"=> "yes"
-					  ],
-					  [
-					    "type"=> "message",
-					    "label"=> "No",
-					    "text"=> "no"
-					  ],[
+				      "title"=> "TOMS2",
+				      "text"=> "Go to Toms2",
+				      "actions"=> array([
 					    "type"=> "uri",
 					    "label"=> "View detail",
 					    "uri"=> "http://tomsdev.apps.thaibev.com/Toms2"
