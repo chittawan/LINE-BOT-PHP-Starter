@@ -218,19 +218,14 @@ function GetReplyMessage($text,$userId) {
 				      "text"=> "Please select",
 				      "actions"=> array(
 					  [
-					    "type"=> "postback",
-					    "label"=> "Buy",
-					    "data"=> "action=buy&itemid=123"
+					    "type"=> "message",
+					    "label"=> "Yes",
+					    "text"=> "yes"
 					  ],
 					  [
-					    "type"=> "postback",
-					    "label"=> "Add to cart",
-					    "data"=> "action=add&itemid=123"
-					  ],
-					  [
-					    "type"=> "uri",
-					    "label"=> "View detail",
-					    "uri"=> "http=>//example.com/page/123"
+					    "type"=> "message",
+					    "label"=> "No",
+					    "text"=> "no"
 					  ]
 				      )
 				  ]
