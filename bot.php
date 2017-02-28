@@ -213,7 +213,7 @@ function GetReplyMessage($text,$userId) {
 				  "altText"=> "this is a buttons template",
 				  "template"=> [
 				      "type"=> "buttons",
-				      "thumbnailImageUrl"=> "https://example.com/bot/images/image.jpg",
+				      "thumbnailImageUrl"=> "https://www.dropbox.com/sc/bbyniy4c5yidl1y/AAAd_YrE1dHgkRmYb_rlL4_aa",
 				      "title"=> "Menu",
 				      "text"=> "Please select",
 				      "actions"=> array(
@@ -226,6 +226,10 @@ function GetReplyMessage($text,$userId) {
 					    "type"=> "message",
 					    "label"=> "No",
 					    "text"=> "no"
+					  ],[
+					    "type": "uri",
+					    "label": "View detail",
+					    "uri": "https://www.dropbox.com/sh/i7jfxjntjldsglo/AAAufjP0Q8jg5SHJl6yJZUv6a?dl=0"
 					  ]
 				      )
 				  ]
