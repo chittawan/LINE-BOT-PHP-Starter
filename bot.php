@@ -214,8 +214,8 @@ function GetReplyMessage($text,$userId) {
 				  "template"=> [
 				      "type"=> "buttons",
 				      "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/login.JPG",
-				      "title"=> "TOMS2",
-				      "text"=> "Go to Toms2",
+				      "title"=> "TOMS2 DEMO",
+				      "text"=> "Go to Toms2 demo",
 				      "actions"=> array([
 					    "type"=> "uri",
 					    "label"=> "View detail",
