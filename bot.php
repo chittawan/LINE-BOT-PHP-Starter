@@ -210,7 +210,7 @@ function GetReplyMessage($text,$userId) {
 	} else if (stripos($text, "Cfx Regis") !== false) {	
 		$messages = [[
 			'type' => 'text',
-			'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด Account FBS.zip"
+			'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"
 		]];
 	} else if (stripos($text, "cfx Fac") !== false) {	
 		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
