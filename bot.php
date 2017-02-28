@@ -207,6 +207,36 @@ function GetReplyMessage($text,$userId) {
 			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
 		]];
 		
+	} else if (stripos($text, "Cfx xy") !== false) {	
+		$messages = [[
+				  "type"=> "template",
+				  "altText"=> "this is a buttons template",
+				  "template"=> [
+				      "type"=> "buttons",
+				      "thumbnailImageUrl"=> "https=>//example.com/bot/images/image.jpg",
+				      "title"=> "Menu",
+				      "text"=> "Please select",
+				      "actions"=> array(
+					  [
+					    "type"=> "postback",
+					    "label"=> "Buy",
+					    "data"=> "action=buy&itemid=123"
+					  ],
+					  [
+					    "type"=> "postback",
+					    "label"=> "Add to cart",
+					    "data"=> "action=add&itemid=123"
+					  ],
+					  [
+					    "type"=> "uri",
+					    "label"=> "View detail",
+					    "uri"=> "http=>//example.com/page/123"
+					  ]
+				      )
+				  ]
+
+		]];
+		
 	} else if (stripos($text, "Cfx xx") !== false) {	
 		$messages = [[
 				  "type"=> "template",
@@ -224,6 +254,29 @@ function GetReplyMessage($text,$userId) {
 					    "type"=> "message",
 					    "label"=> "No",
 					    "text"=> "no"
+					  ]
+				      )
+				  ]
+
+		]];
+		
+	} else if (stripos($text, "Cfx football") !== false) {	
+		$messages = [[
+				  "type"=> "template",
+				  "altText"=> "ใครไปเตะบอลบ้าง",
+				  "template"=> [
+				      "type"=> "confirm",
+				      "text"=> "ใครไปเตะบอลบ้าง",
+				      "actions"=> array(
+					  [
+					    "type"=> "message",
+					    "label"=> "ไป",
+					    "text"=> "ไป"
+					  ],
+					  [
+					    "type"=> "message",
+					    "label"=> "ไม่ไป",
+					    "text"=> "ไม่ไป"
 					  ]
 				      )
 				  ]
