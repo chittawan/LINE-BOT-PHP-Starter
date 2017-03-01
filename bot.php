@@ -70,6 +70,7 @@ if (!is_null($events['events'])) {
 }
 function GetReplyMessage($text,$userId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
+	
 	if(stripos($text, "หุบปาก") !== false){
 		$myfile = fopen("text.txt", "w") or die("Unable to open file!");
 		fwrite($myfile, 1);
@@ -191,17 +192,21 @@ function GetReplyMessage($text,$userId) {
 			'type' => 'text',
 			'text' => $randNumber
 		]];				
-	} else if (stripos($text, "Cfx Myinfo") !== false) {	
-		$digits = 2;
-                $randNumber = rand(pow(10, $digits-1), pow(10, $digits)-1);
+	} 
+	
+	if (stripos($text, "Cfx Myinfo") !== false) {	
 		$messages = [[
 			'type' => 'text',
 			'text' => $userId
 		]];
 		
 	} else if (stripos($text, "Cfx Acc") !== false) {	
-		$digits = 2;
-                $randNumber = rand(pow(10, $digits-1), pow(10, $digits)-1);
+		$messages = [[
+			'type' => 'text',
+			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
+		]];
+		
+	} else if (stripos($text, "Cfx Acc") !== false) {	
 		$messages = [[
 			'type' => 'text',
 			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
@@ -365,11 +370,15 @@ function GetReplyMessage($text,$userId) {
 
 		]];
 		
-	} else if (stripos($text, "Cfx Regis") !== false) {	
-		$messages = [[
-			'type' => 'text',
-			'text' => "https://fathomless-anchorage-14853.herokuapp.com/วิธีเปิด%20Account%20FBS.zip"
-		]];
+	} else if (stripos($text, "Cfx saimai") !== false) {	
+		$splitStr = explode('#',$text);
+		if(count($splitStr) >= 2){
+			$userId = "C6614ebe54e49c320307197b657d07202"
+			$messages = [[
+				'type' => 'text',
+				'text' => $splitStr[1]
+			]];
+		}
 	} else if (stripos($text, "cfx Fac") !== false) {	
 		$feedUrl = 'https://cdn-nfs.forexfactory.net/ff_calendar_thisweek.xml?v=1';
 		$xml = simplexml_load_file($feedUrl);
