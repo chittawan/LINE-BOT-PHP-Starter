@@ -31,41 +31,30 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			//if (stripos($text, "หอย") !== false) {
-	
-				//if ($userId == $SSCGroupId || $userId == $TestGroupId || $userId == $PaeUserId) {
-					$messages = GetReplyMessage($text,$userId);
-				//} 
-				//elseif (stripos($text, "userid") !== false) {
-				//	$messages = [[
-				//		'type' => 'text',
-				//		'text' => $userId
-				//	]];
-				//}
+			$messages = GetReplyMessage($text,$userId);
 				
-				if (!is_null($messages) && (!$shortup) ) {
 				
-					// Make a POST Request to Messaging API to reply to sender
-					
-					$url = 'https://api.line.me/v2/bot/message/reply';
-					$data = [
-						'replyToken' => $replyToken,
-						'messages' => $messages,
-					];
-					$post = json_encode($data);
-					$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-					$ch = curl_init($url);
-					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-					curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-					$result = curl_exec($ch);
-					curl_close($ch);
-					echo $result . "\r\n";
-				}
-				
-			//}
+			if (!is_null($messages) && (!$shortup) ) {
+
+				// Make a POST Request to Messaging API to reply to sender
+
+				$url = 'https://api.line.me/v2/bot/message/reply';
+				$data = [
+					'replyToken' => $replyToken,
+					'messages' => $messages,
+				];
+				$post = json_encode($data);
+				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				$result = curl_exec($ch);
+				curl_close($ch);
+				echo $result . "\r\n";
+			}
 		}
 	}
 }
