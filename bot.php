@@ -4,6 +4,7 @@ $access_token = 'WrOvUObu3f++FH65SpmKQqkzd31q1HsVgv29G2EYPkye7NdGMp+I0/SeQHXIcje
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
+$userId = '';
 if(!file_exists("text.txt")){
    $myfile = fopen("text.txt", "w") or die("Unable to open file!");
    fwrite($myfile, 0);
@@ -68,7 +69,7 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-function GetReplyMessage($text,$userId) {
+function GetReplyMessage($text,$myUserId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	
 	if(stripos($text, "หุบปาก") !== false){
@@ -197,7 +198,7 @@ function GetReplyMessage($text,$userId) {
 	if (stripos($text, "Cfx Myinfo") !== false) {	
 		$messages = [[
 			'type' => 'text',
-			'text' => $userId
+			'text' => $myUserId
 		]];
 		
 	} else if (stripos($text, "Cfx Acc") !== false) {	
