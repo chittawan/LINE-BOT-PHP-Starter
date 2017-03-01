@@ -206,12 +206,6 @@ function GetReplyMessage($text,$userId) {
 			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
 		]];
 		
-	} else if (stripos($text, "Cfx Acc") !== false) {	
-		$messages = [[
-			'type' => 'text',
-			'text' => "ค่า server โอนมาที่ \n 718-258-018-4 \n กสิกร \n วิทยา จงอุดมพร"
-		]];
-		
 	} else if (stripos($text, "Cfx toms2") !== false) {	
 		$messages = [[
 				  "type"=> "template",
@@ -347,33 +341,10 @@ function GetReplyMessage($text,$userId) {
 		]];
 		}
 		
-	} else if (stripos($text, "Cfx football") !== false) {	
-		$messages = [[
-				  "type"=> "template",
-				  "altText"=> "ใครไปเตะบอลบ้าง",
-				  "template"=> [
-				      "type"=> "confirm",
-				      "text"=> "ใครไปเตะบอลบ้าง",
-				      "actions"=> array(
-					  [
-					    "type"=> "message",
-					    "label"=> "ไป",
-					    "text"=> "ไป"
-					  ],
-					  [
-					    "type"=> "message",
-					    "label"=> "ไม่ไป",
-					    "text"=> "ไม่ไป"
-					  ]
-				      )
-				  ]
-
-		]];
-		
 	} else if (stripos($text, "Cfx saimai") !== false) {	
 		$splitStr = explode('#',$text);
-		if(count($splitStr) >= 2){
-			$userId = "C6614ebe54e49c320307197b657d07202"
+		if(count($splitStr) >= 2) {
+			$userId = "C6614ebe54e49c320307197b657d07202";
 			$messages = [[
 				'type' => 'text',
 				'text' => $splitStr[1]
