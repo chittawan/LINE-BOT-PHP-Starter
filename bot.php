@@ -86,9 +86,9 @@ function answerQuestionFile($myFileName,$myUserId,$myAnswer){
 				  ]);
 		}
 		
-		$myFileName = $groupId . ".txt";
+		
 		$json = json_encode($myArray, true);
-		if(!file_exists($myFileName)){
+		if(file_exists($myFileName)){
 			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
 			fwrite($myfile, $json);
 			fclose($myfile);
