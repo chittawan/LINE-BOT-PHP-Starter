@@ -12,6 +12,7 @@ $keyword = array([
 
 foreach($keyword as $item)
 {
+  echo $item;
     if($item->userId == "B")
     {
         echo $item->answer;
