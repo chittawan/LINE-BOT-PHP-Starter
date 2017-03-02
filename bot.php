@@ -192,7 +192,7 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 		
 	} else if (stripos($text, "Cfx wmi") !== false) {	
-		$url = 'https://api.line.me/v2/bot/profile/' . $myUserId
+		$url = 'https://api.line.me/v2/bot/profile/' . $myUserId;
 		$data = [
 			'replyToken' => $replyToken,
 			'messages' => $messages,
