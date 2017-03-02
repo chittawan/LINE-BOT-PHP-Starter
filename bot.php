@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
 				$url = 'https://api.line.me/v2/bot/message/reply';
 				$data = [
 					'replyToken' => $replyToken,
-					'messages' => $messages,
+					'messages' => $messages
 				];
 				$post = json_encode($data);
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -195,7 +195,7 @@ function GetReplyMessage($text,$myUserId) {
 		$url = 'https://api.line.me/v2/bot/profile/' . $myUserId;
 		$data = [
 			'replyToken' => $replyToken,
-			'messages' => $messages,
+			'messages' => $messages
 		];
 		$post = json_encode($data);
 		$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -210,25 +210,10 @@ function GetReplyMessage($text,$myUserId) {
 		if ($response->isSucceeded()) {
 		    	$profile = $response->getJSONDecodedBody();
 			$messages = [[
-				'type' => $profile['displayName'],
-				'text' => $GLOBALS['ping']
+				'type' => 'text',
+				'text' => $profile['displayName']
 			]];
 		}		
-		
-	} else if (stripos($text, "Cfx ping") !== false) {	
-		static $GLOBALS['ping'] = '';
-		$splitStr = explode('#',$text);
-		$GLOBALS['ping'] = $splitStr[1];
-		$messages = [[
-			'type' => 'text',
-			'text' => $GLOBALS['ping']
-		]];
-		
-	} else if (stripos($text, "Cfx pong") !== false) {	
-		$messages = [[
-			'type' => 'text',
-			'text' => $GLOBALS['ping']
-		]];
 		
 	} else if (stripos($text, "Cfx Acc") !== false) {	
 		$messages = [[
