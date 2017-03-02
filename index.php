@@ -9,6 +9,16 @@ $keyword = array([
                   userId => 'C',
                   answer => 'NO'
                   ]);
+
+foreach($keyword[0] as $item)
+{
+    if($item->userId == "B")
+    {
+        echo $item->answer;
+        $item->answer = 'NO';
+    }
+}
+
 $myUserId = 'Uce91bbcb4d5185a7c0ab1ebfdbd13539';
 $myFileName = $myUserId . ".txt";
 $json = json_encode($keyword, true);
