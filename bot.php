@@ -4,6 +4,7 @@ $access_token = 'WrOvUObu3f++FH65SpmKQqkzd31q1HsVgv29G2EYPkye7NdGMp+I0/SeQHXIcje
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
+$ping = "";
 $userId = '';
 if(!file_exists("text.txt")){
    $myfile = fopen("text.txt", "w") or die("Unable to open file!");
@@ -156,12 +157,12 @@ function GetReplyMessage($text,$myUserId) {
 	} else if (stripos($text, "เม") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'เมอยู่บ้าน ม่านปิดอยู่'
+			'text' => 'เมอยู่บ้าน'
 		]];
 	} else if (stripos($text, "เย") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'เยที่่ไหน ใครรู้บ้าง'
+			'text' => 'เยที่่ไหน'
 		]];
 	} else if (stripos($text, "ใคร") !== false) {		
 		$messages = [[
@@ -188,6 +189,20 @@ function GetReplyMessage($text,$myUserId) {
 		$messages = [[
 			'type' => 'text',
 			'text' => $myUserId
+		]];
+		
+	} else if (stripos($text, "Cfx ping") !== false) {	
+		$GLOBALS['z'] = $text;
+		$messages = [[
+			'type' => 'text',
+			'text' => "OK"
+		]];
+		
+	} else if (stripos($text, "Cfx pong") !== false) {	
+		$GLOBALS['z'] = $text;
+		$messages = [[
+			'type' => 'text',
+			'text' => $GLOBALS['z']
 		]];
 		
 	} else if (stripos($text, "Cfx Acc") !== false) {	
