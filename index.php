@@ -10,7 +10,7 @@ $keyword = array([
                   answer => 'NO'
                   ]);
 
-foreach($keyword[0] as $item)
+foreach($keyword as $item)
 {
     if($item->userId == "B")
     {
