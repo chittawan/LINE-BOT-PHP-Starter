@@ -5,33 +5,6 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-final class UserFactory
-{
-    /**
-     * Call this method to get singleton
-     *
-     * @return UserFactory
-     */
-    public static function Instance()
-    {
-        static $inst = null;
-        if ($inst === null) {
-            $inst = new UserFactory();
-        }
-        return $inst;
-    }
-
-    /**
-     * Private ctor so nobody else can instance it
-     *
-     */
-    private function __construct()
-    {
-
-    }
-}
-
-
 $userId = '';
 if(!file_exists("text.txt")){
    $myfile = fopen("text.txt", "w") or die("Unable to open file!");
@@ -219,7 +192,7 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 		
 	} else if (stripos($text, "Cfx ping") !== false) {	
-		$GLOBALS['ping'] = UserFactory::Instance();
+		static $GLOBALS['ping'] = '';
 		$splitStr = explode('#',$text);
 		$GLOBALS['ping'] = $splitStr[1];
 		$messages = [[
