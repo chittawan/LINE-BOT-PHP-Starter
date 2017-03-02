@@ -4,7 +4,16 @@ $access_token = 'WrOvUObu3f++FH65SpmKQqkzd31q1HsVgv29G2EYPkye7NdGMp+I0/SeQHXIcje
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-$ping = "";
+
+class Ping {
+  private static $ping;
+  static function init()
+  {
+    self::$ping = array(…);
+  }
+}
+Ping::init();
+
 $userId = '';
 if(!file_exists("text.txt")){
    $myfile = fopen("text.txt", "w") or die("Unable to open file!");
