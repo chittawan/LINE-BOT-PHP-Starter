@@ -206,16 +206,13 @@ function GetReplyMessage($text,$myUserId) {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		$response = curl_exec($ch);
+		curl_close($ch);
 		if ($response->isSucceeded()) {
-		    $profile = $response->getJSONDecodedBody();
-		    #echo $profile['displayName'];
-		    #echo $profile['pictureUrl'];
-		    #echo $profile['statusMessage'];
-			
+		    	$profile = $response->getJSONDecodedBody();
 			$messages = [[
-			'type' => $profile['displayName'],
-			'text' => $GLOBALS['ping']
-		]];
+				'type' => $profile['displayName'],
+				'text' => $GLOBALS['ping']
+			]];
 		}		
 		
 	} else if (stripos($text, "Cfx ping") !== false) {	
