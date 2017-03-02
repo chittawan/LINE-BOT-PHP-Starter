@@ -5,4 +5,6 @@ echo "my function\n";
 return ++$num_func_calls;
 }
 echo MyFunc();
+echo MyFunc();
+
 ?>
