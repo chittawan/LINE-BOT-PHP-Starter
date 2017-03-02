@@ -202,7 +202,7 @@ function GetReplyMessage($text,$myUserId) {
 	} else if (stripos($text, "Cfx ping") !== false) {	
 		Ping::init();
 		$splitStr = explode('#',$text);
-		$GLOBALS['z'] = $splitStr[1];
+		$ping = $splitStr[1];
 		$messages = [[
 			'type' => 'text',
 			'text' => "OK"
@@ -211,7 +211,7 @@ function GetReplyMessage($text,$myUserId) {
 	} else if (stripos($text, "Cfx pong") !== false) {	
 		$messages = [[
 			'type' => 'text',
-			'text' => $GLOBALS['z']
+			'text' => $ping
 		]];
 		
 	} else if (stripos($text, "Cfx Acc") !== false) {	
