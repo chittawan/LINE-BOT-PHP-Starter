@@ -32,7 +32,7 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			$messages = GetReplyMessage($text,$userId);
+			$messages = GetReplyMessage($text,$event);
 				
 				
 			if (!is_null($messages)) {// && (!$shortup) 
@@ -59,7 +59,44 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-function GetReplyMessage($text,$myUserId) {
+function clearQuestionFile($fileName){ 
+	$myfile = fopen($fileName, "w") or die("Unable to open file!");
+	fwrite($myfile, '');
+	fclose($myfile);
+	
+}
+function answerQuestionFile($myFileName,$myUserId,$myAnswer){
+	if(file_exists($myFileName)){
+		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
+	 	$myArray = json_decode(fgets($myfile));		
+		
+		$isExists = false;
+		foreach($myArray as $item)
+		{
+		    if($item->userId == $userId)
+		    {
+			$isExists = true;
+			$item->answer = $answer;
+		    }
+		}
+		if(!$isExists){
+		  array_push($myArray,[
+				  userId => $userId,
+				  answer => $answer
+				  ]);
+		}
+		
+		$myFileName = $groupId . ".txt";
+		$json = json_encode($myArray, true);
+		if(!file_exists($myFileName)){
+			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
+			fwrite($myfile, $json);
+			fclose($myfile);
+			return "ok";
+		}
+	}
+}
+function GetReplyMessage($text,$myEvent) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	
 	if(stripos($text, "หุบปาก") !== false){
@@ -188,14 +225,14 @@ function GetReplyMessage($text,$myUserId) {
 	if (stripos($text, "Cfx Myinfo") !== false) {	
 		$messages = [[
 			'type' => 'text',
-			'text' => $myUserId
+			'text' => $myEvent['source']['userId']
 		]];
 		
 	} else if (stripos($text, "Cfx wmi") !== false) {	
-		$url = 'https://api.line.me/v2/bot/profile/' . $myUserId;
+		$url = 'https://api.line.me/v2/bot/profile/' . $myEvent['source']['userId'];
 		$data = [
 			'replyToken' => $replyToken,
-			'userId' => $myUserId
+			'userId' => $myEvent['source']['userId']
 		];
 		$post = json_encode($data);
 		$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -325,9 +362,30 @@ function GetReplyMessage($text,$myUserId) {
 
 		]];
 		
-	} else if (stripos($text, "Cfx ask") !== false) {
+	} else if (stripos($text, "Cfx answer") !== false) {
+		$splitStr = explode('#',$text);
+		if(count($splitStr) >= 2){			
+			$fileName = 'question.txt';
+			$myUserId = $myEvent['source']['userId'];
+			$answer = $splitStr[1];			
+			$result = answerQuestionFile($fileName,$myUserId,$answer);
+			$messages = [[
+				'type' => 'text',
+				'text' => $result
+			]];
+		} else {
+			$messages = [[
+				'type' => 'text',
+				'text' => "ผมไม่เข้าใจ"
+			]];
+		}
+		
+	}  else if (stripos($text, "Cfx ask") !== false) {
 		$splitStr = explode('#',$text);
 		if(count($splitStr) >= 4){
+			$fileName = 'question.txt';
+			$key = 'Cfx answer#';
+			clearQuestionFile($fileName);
 			$messages = [[
 					  "type"=> "template",
 					  "altText"=> $splitStr[1],
@@ -338,12 +396,12 @@ function GetReplyMessage($text,$myUserId) {
 						  [
 						    "type"=> "message",
 						    "label"=> $splitStr[2],
-						    "text"=> $splitStr[2]
+						    "text"=> $key . $splitStr[2]
 						  ],
 						  [
 						    "type"=> "message",
 						    "label"=> $splitStr[3],
-						    "text"=> $splitStr[3]
+						    "text"=> $key . $splitStr[3]
 						  ]
 					      )
 					  ]
