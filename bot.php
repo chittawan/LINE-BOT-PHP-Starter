@@ -195,7 +195,7 @@ function GetReplyMessage($text,$myUserId) {
 		$url = 'https://api.line.me/v2/bot/profile/' . $myUserId;
 		$data = [
 			'replyToken' => $replyToken,
-			'messages' => $messages
+			'userId' => $myUserId
 		];
 		$post = json_encode($data);
 		$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
