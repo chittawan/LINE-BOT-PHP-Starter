@@ -9,7 +9,7 @@ class Ping {
   private static $ping;
   static function init()
   {
-    self::$ping = array(…);
+    self::$ping = '';
   }
 }
 
@@ -43,7 +43,7 @@ if (!is_null($events['events'])) {
 			$messages = GetReplyMessage($text,$userId);
 				
 				
-			if (!is_null($messages) && (!$shortup) ) {
+			if (!is_null($messages)) {// && (!$shortup) 
 
 				// Make a POST Request to Messaging API to reply to sender
 
