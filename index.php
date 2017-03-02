@@ -23,7 +23,7 @@ foreach($myArray as $item)
     }
 }
 if(!$isExists){
-  array_push($a,[
+  array_push($myArray,[
                   userId => $userId,
                   answer => $answer
                   ]);
