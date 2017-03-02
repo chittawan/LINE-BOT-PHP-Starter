@@ -1,5 +1,8 @@
 <?php
-$keyword = array([
+$groupId = 'Uce91bbcb4d5185a7c0ab1ebfdbd13539';
+$userId = 'E';
+$answer = 'NO';
+$myArray = array([
                   userId => 'A',
                   answer => 'Yes'
                   ], [
@@ -10,19 +13,25 @@ $keyword = array([
                   answer => 'NO'
                   ]);
 
-foreach($keyword as $item)
+$isExists = false;
+foreach($myArray as $item)
 {
-  echo $item;
-    if($item->userId == "B")
+    if($item->userId == $userId)
     {
-        echo $item->answer;
-        $item->answer = 'NO';
+        $isExists = true;
+        $item->answer = $answer;
     }
 }
+if(!$isExists){
+  array_push($a,[
+                  userId => $userId,
+                  answer => $answer
+                  ]);
+}
 
-$myUserId = 'Uce91bbcb4d5185a7c0ab1ebfdbd13539';
-$myFileName = $myUserId . ".txt";
-$json = json_encode($keyword, true);
+
+$myFileName = $groupId . ".txt";
+$json = json_encode($myArray, true);
 if(!file_exists($myFileName)){
    $myfile = fopen($myFileName, "w") or die("Unable to open file!");
    fwrite($myfile, $json);
