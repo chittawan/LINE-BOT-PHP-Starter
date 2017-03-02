@@ -6,7 +6,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 class Ping {
-  public static $ping;
+  static $ping;
   static function init()
   {
     self::$ping = '';
@@ -205,7 +205,7 @@ function GetReplyMessage($text,$myUserId) {
 		$GLOBALS['ping'] = $splitStr[1];
 		$messages = [[
 			'type' => 'text',
-			'text' => "OK"
+			'text' => $GLOBALS['ping']
 		]];
 		
 	} else if (stripos($text, "Cfx pong") !== false) {	
