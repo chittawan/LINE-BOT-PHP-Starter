@@ -192,10 +192,20 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 		
 	} else if (stripos($text, "Cfx wmi") !== false) {	
-		$url = 'https://api.line.me/v2/bot/profile/' . $myUserId;
-		$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-		$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $replyToken]);
-		$response = $bot->getProfile($myUserId);
+		$url = 'https://api.line.me/v2/bot/profile/' . $myUserId
+		$data = [
+			'replyToken' => $replyToken,
+			'messages' => $messages,
+		];
+		$post = json_encode($data);
+		$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		$response = curl_exec($ch);
 		if ($response->isSucceeded()) {
 		    $profile = $response->getJSONDecodedBody();
 		    #echo $profile['displayName'];
