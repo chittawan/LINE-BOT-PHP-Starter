@@ -191,6 +191,23 @@ function GetReplyMessage($text,$myUserId) {
 			'text' => $myUserId
 		]];
 		
+	} else if (stripos($text, "Cfx wmi") !== false) {	
+		$url = 'https://api.line.me/v2/bot/profile/' . $myUserId;
+		$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+		$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $replyToken]);
+		$response = $bot->getProfile($myUserId);
+		if ($response->isSucceeded()) {
+		    $profile = $response->getJSONDecodedBody();
+		    #echo $profile['displayName'];
+		    #echo $profile['pictureUrl'];
+		    #echo $profile['statusMessage'];
+			
+			$messages = [[
+			'type' => $profile['displayName'],
+			'text' => $GLOBALS['ping']
+		]];
+		}		
+		
 	} else if (stripos($text, "Cfx ping") !== false) {	
 		static $GLOBALS['ping'] = '';
 		$splitStr = explode('#',$text);
