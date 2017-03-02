@@ -61,7 +61,7 @@ if (!is_null($events['events'])) {
 }
 function clearQuestionFile($fileName){ 
 	$myfile = fopen($fileName, "w") or die("Unable to open file!");
-	fwrite($myfile, '');
+	fwrite($myfile, json_encode(array()));
 	fclose($myfile);
 	
 }
