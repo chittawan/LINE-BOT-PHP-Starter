@@ -73,16 +73,16 @@ function answerQuestionFile($myFileName,$myUserId,$myAnswer){
 		$isExists = false;
 		foreach($myArray as $item)
 		{
-		    if($item->userId == $userId)
+		    if($item->userId == $myUserId)
 		    {
 			$isExists = true;
-			$item->answer = $answer;
+			$item->answer = $myAnswer;
 		    }
 		}
 		if(!$isExists){
 		  array_push($myArray,[
-				  userId => $userId,
-				  answer => $answer
+				  userId => $myUserId,
+				  answer => $myAnswer
 				  ]);
 		}
 		
