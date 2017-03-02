@@ -1,10 +1,21 @@
 <?php
-function MyFunc() {
-static $num_func_calls = 0;
-echo "my function\n";
-return ++$num_func_calls;
+$keyword = array([
+                  userId => 'A',
+                  answer => 'Yes'
+                  ], [
+                  userId => 'B',
+                  answer => 'Yes'
+                  ], [
+                  userId => 'C',
+                  answer => 'NO'
+                  ]);
+$myUserId = 'Uce91bbcb4d5185a7c0ab1ebfdbd13539';
+$myFileName = $myUserId . ".txt";
+$json = json_decode($keyword, true);
+if(!file_exists($myFileName)){
+   $myfile = fopen($myFileName, "w") or die("Unable to open file!");
+   fwrite($myfile, $json);
+   fclose($myfile);
 }
-echo MyFunc();
-echo MyFunc();
-
+echo $json;
 ?>
