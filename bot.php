@@ -225,7 +225,7 @@ function GetReplyMessage($text,$myEvent) {
 	if (stripos($text, "Cfx Myinfo") !== false) {	
 		$messages = [[
 			'type' => 'text',
-			'text' => $myEvent['source']['userId']
+			'text' => $myEvent['source']
 		]];
 		
 	} else if (stripos($text, "Cfx wmi") !== false) {	
