@@ -1,13 +1,8 @@
 <?php
-
-$x = 75; 
-$y = 25;
- 
-function addition() { 
-    $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y']; 
+function MyFunc() {
+static $num_func_calls = 0;
+echo "my function\n";
+return ++$num_func_calls;
 }
- 
-addition(); 
-echo $z; 
-
+echo MyFunc();
 ?>
