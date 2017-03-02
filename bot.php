@@ -5,13 +5,32 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-class Ping {
-  static $ping;
-  static function init()
-  {
-    self::$ping = '';
-  }
+final class UserFactory
+{
+    /**
+     * Call this method to get singleton
+     *
+     * @return UserFactory
+     */
+    public static function Instance()
+    {
+        static $inst = null;
+        if ($inst === null) {
+            $inst = new UserFactory();
+        }
+        return $inst;
+    }
+
+    /**
+     * Private ctor so nobody else can instance it
+     *
+     */
+    private function __construct()
+    {
+
+    }
 }
+
 
 $userId = '';
 if(!file_exists("text.txt")){
@@ -200,7 +219,7 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 		
 	} else if (stripos($text, "Cfx ping") !== false) {	
-		Ping::init();
+		$GLOBALS['ping'] = UserFactory::Instance();
 		$splitStr = explode('#',$text);
 		$GLOBALS['ping'] = $splitStr[1];
 		$messages = [[
