@@ -6,7 +6,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 class Ping {
-  private static $ping;
+  public static $ping;
   static function init()
   {
     self::$ping = '';
