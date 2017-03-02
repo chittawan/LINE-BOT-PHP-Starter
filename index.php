@@ -11,7 +11,7 @@ $keyword = array([
                   ]);
 $myUserId = 'Uce91bbcb4d5185a7c0ab1ebfdbd13539';
 $myFileName = $myUserId . ".txt";
-$json = json_decode($keyword, true);
+$json = json_encode($keyword, true);
 if(!file_exists($myFileName)){
    $myfile = fopen($myFileName, "w") or die("Unable to open file!");
    fwrite($myfile, $json);
