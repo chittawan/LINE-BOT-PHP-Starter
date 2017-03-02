@@ -192,14 +192,14 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 		
 	} else if (stripos($text, "Cfx ping") !== false) {	
-		$GLOBALS['z'] = $text;
+		$splitStr = explode('#',$text);
+		$GLOBALS['z'] = $splitStr[1];
 		$messages = [[
 			'type' => 'text',
 			'text' => "OK"
 		]];
 		
 	} else if (stripos($text, "Cfx pong") !== false) {	
-		$GLOBALS['z'] = $text;
 		$messages = [[
 			'type' => 'text',
 			'text' => $GLOBALS['z']
