@@ -12,7 +12,6 @@ class Ping {
     self::$ping = array(…);
   }
 }
-Ping::init();
 
 $userId = '';
 if(!file_exists("text.txt")){
@@ -201,6 +200,7 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 		
 	} else if (stripos($text, "Cfx ping") !== false) {	
+		Ping::init();
 		$splitStr = explode('#',$text);
 		$GLOBALS['z'] = $splitStr[1];
 		$messages = [[
