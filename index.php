@@ -2,6 +2,7 @@
 $groupId = 'Uce91bbcb4d5185a7c0ab1ebfdbd13539';
 $userId = 'E';
 function addWordFile($myUserId,$myAsk,$myAnswer){
+	
 	$myFileName = 'word_' . $myUserId . '.txt';
 	if(!file_exists($myFileName)){
 	   clearQuestionFile($myFileName);
@@ -26,7 +27,8 @@ function addWordFile($myUserId,$myAsk,$myAnswer){
 			answer => $myAnswer
 			]);
 		}
-		
+		echo $myAsk;
+		echo $myAnswer;
 		$json = json_encode($myArray, true);
 		if(file_exists($myFileName)){
 			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
@@ -44,6 +46,6 @@ function clearQuestionFile($fileName){
 	fclose($myfile);
 	
 }
-$result =  addWordFile('Uce91bbcb4d5185a7c0ab1ebfdbd13539',"Hello",'Hi');
+$result =  addWordFile('Uce91bbcb4d5185a7c0ab1ebfdbd13539','Hello','Hi');
 echo $result;
 ?>
