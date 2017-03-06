@@ -32,7 +32,7 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			$messages = GetReplyMessage($text,$event);
+			$messages = GetReplyMessage($text,$userId);
 				
 				
 			if (!is_null($messages)) {// && (!$shortup) 
@@ -163,7 +163,7 @@ function findWordFile($myUserId,$myAsk){
 	}
 }
 
-function GetReplyMessage($text,$myEvent) {
+function GetReplyMessage($text,$myUserId) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	
 	if(stripos($text, "หุบปาก") !== false){
@@ -293,11 +293,10 @@ function GetReplyMessage($text,$myEvent) {
 	if (stripos($text, "Cfx Myinfo") !== false) {	
 		$messages = [[
 			'type' => 'text',
-			'text' => $myEvent['source']
+			'text' => $myUserId
 		]];
 		
-	} else if (stripos($text, "Cfx add") !== false) {	
-		$myUserId = $myEvent['source']['userId'];		
+	} else if (stripos($text, "Cfx add") !== false) {		
 		$result = findWordFile($myUserId,$text);
 		$messages = [[
 			'type' => 'text',
@@ -307,7 +306,6 @@ function GetReplyMessage($text,$myEvent) {
 	} else if (stripos($text, "Cfx add") !== false) {	
 		$splitStr = explode('#',$text);
 		if(count($splitStr) >= 3){
-			$myUserId = $myEvent['source']['userId'];
 			$result = addWordFile($myUserId, $splitStr[1], $splitStr[2]);
 			$messages = [[
 				'type' => 'text',
@@ -321,10 +319,10 @@ function GetReplyMessage($text,$myEvent) {
 		}
 		
 	} else if (stripos($text, "Cfx wmi") !== false) {	
-		$url = 'https://api.line.me/v2/bot/profile/' . $myEvent['source']['userId'];
+		$url = 'https://api.line.me/v2/bot/profile/' . $myUserId;
 		$data = [
 			'replyToken' => $replyToken,
-			'userId' => $myEvent['source']['userId']
+			'userId' => $myUserId
 		];
 		$post = json_encode($data);
 		$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -458,7 +456,6 @@ function GetReplyMessage($text,$myEvent) {
 		$splitStr = explode('#',$text);
 		if(count($splitStr) >= 2){			
 			$fileName = 'question.txt';
-			$myUserId = $myEvent['source']['userId'];
 			$answer = $splitStr[1];			
 			$result = answerQuestionFile($fileName,$myUserId,$answer);
 			$messages = [[
