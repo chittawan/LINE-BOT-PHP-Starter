@@ -3,7 +3,6 @@ $groupId = 'Uce91bbcb4d5185a7c0ab1ebfdbd13539';
 $userId = 'E';
 function addWordFile($myUserId,$myAsk,$myAnswer){
 	$myFileName = 'word_' . $myUserId . '.txt';
-	echo $myFileName;
 	if(!file_exists($myFileName)){
 	   clearQuestionFile($myFileName);
 	}
@@ -32,6 +31,7 @@ function addWordFile($myUserId,$myAsk,$myAnswer){
 			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
 			fwrite($myfile, $json);
 			fclose($myfile);
+			echo $json;
 			return 'OK.';
 		}
 	}
