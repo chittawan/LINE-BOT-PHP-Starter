@@ -73,16 +73,18 @@ function answerQuestionFile($myFileName,$myUserId,$myAnswer){
 		$isExists = false;
 		foreach($myArray as $item)
 		{
-		    if($item->userId == $myUserId)
+		    if($item->userId == $myUserId && $item->answer == $myAnswer)
 		    {
 			$isExists = true;
 			$item->answer = $myAnswer;
+			$item->total = $item->total +1;
 		    }
 		}
 		if(!$isExists){
 		  array_push($myArray,[
 				  userId => $myUserId,
-				  answer => $myAnswer
+				  answer => $myAnswer,
+			  	  total => 0
 				  ]);
 		}
 		
