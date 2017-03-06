@@ -113,7 +113,7 @@ function addWordFile($myUserId,$myAsk,$myAnswer){
 		$total = 1;
 		foreach($myArray as $item)
 		{
-		    if($item->userId == $myUserId && $item->ask == $myAsk)
+		    if($item->ask == $myAsk)
 		    {
 			$isExists = true;
 			$item->answer = $myAnswer;
