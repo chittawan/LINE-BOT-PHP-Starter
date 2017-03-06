@@ -1,41 +1,48 @@
 <?php
 $groupId = 'Uce91bbcb4d5185a7c0ab1ebfdbd13539';
 $userId = 'E';
-$answer = 'NO';
-$myArray = array([
-                  userId => 'A',
-                  answer => 'Yes'
-                  ], [
-                  userId => 'B',
-                  answer => 'Yes'
-                  ], [
-                  userId => 'C',
-                  answer => 'NO'
-                  ]);
-
-$isExists = false;
-foreach($myArray as $item)
-{
-    if($item->userId == $userId)
-    {
-        $isExists = true;
-        $item->answer = $answer;
-    }
+function addWordFile($myUserId,$myAsk,$myAnswer){
+	$myFileName = 'word_' . $myUserId . '.txt';
+	if(!file_exists($myFileName)){
+	   clearQuestionFile($myFileName);
+	}
+	if(file_exists($myFileName)){
+		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
+	 	$myArray = json_decode(fgets($myfile));		
+		
+		$isExists = false;
+		foreach($myArray as $item)
+		{
+		    if($item->ask == $myAsk)
+		    {
+			$isExists = true;
+			$item->answer = $myAnswer;
+		    }
+		}
+		if(!$isExists){
+		  array_push($myArray,[
+			ask => $myAsk,
+			answer => $myAnswer
+			]);
+		}
+		
+		$json = json_encode($myArray, true);
+		if(file_exists($myFileName)){
+			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
+			fwrite($myfile, $json);
+			fclose($myfile);
+			return 'OK';
+		}
+	}
+	return 'Fail';
 }
-if(!$isExists){
-  array_push($myArray,[
-                  userId => $userId,
-                  answer => $answer
-                  ]);
+function clearQuestionFile($fileName){ 
+	$myfile = fopen($fileName, "w") or die("Unable to open file!");
+	fwrite($myfile, json_encode(array()));
+	fclose($myfile);
+	
 }
-
-
-$myFileName = $groupId . ".txt";
-$json = json_encode($myArray, true);
-if(!file_exists($myFileName)){
-   $myfile = fopen($myFileName, "w") or die("Unable to open file!");
-   fwrite($myfile, $json);
-   fclose($myfile);
-}
-echo $json;
+$myFileName = 'word_Uce91bbcb4d5185a7c0ab1ebfdbd13539.txt';
+$result =  addWordFile($myFileName,"Hello",'Hi');
+echo $result;
 ?>
