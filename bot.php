@@ -292,6 +292,12 @@ function GetReplyMessage($text,$myUserId) {
 			'type' => 'text',
 			'text' => $randNumber
 		]];				
+	} else if (stripos($text, "Cfx") === false) {		
+		$result = findWordFile($myUserId,$text);
+		$messages = [[
+			'type' => 'text',
+			'text' => $result
+		]];
 	} 
 	
 	
@@ -299,13 +305,6 @@ function GetReplyMessage($text,$myUserId) {
 		$messages = [[
 			'type' => 'text',
 			'text' => $myUserId
-		]];
-		
-	} else if (stripos($text, "Cfx add") !== false) {		
-		$result = findWordFile($myUserId,$text);
-		$messages = [[
-			'type' => 'text',
-			'text' => $result
 		]];
 		
 	} else if (stripos($text, "Cfx add") !== false) {	
