@@ -143,28 +143,19 @@ function findWordFile($myUserId,$myAsk){
 	if(file_exists($myFileName)){
 		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
 	 	$myArray = json_decode(fgets($myfile));		
+		$result = '';
 		
 		$isExists = false;
 		$total = 1;
 		foreach($myArray as $item)
 		{
-		    if($item->userId == $myUserId && stripos($myAsk, $item->ask) !== false)
+		    if(stripos($myAsk, $item->ask) !== false)
 		    {
 			$isExists = true;
-			$item->answer = $myAnswer;
+			$result = $item->answer;
 		    }
 		}
-		if(!$isExists){
-		  return '';
-		}
-		
-		$json = json_encode($myArray, true);
-		if(file_exists($myFileName)){
-			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
-			fwrite($myfile, $json);
-			fclose($myfile);
-			return $myAnswer;
-		}
+		return $result;
 	}
 }
 
