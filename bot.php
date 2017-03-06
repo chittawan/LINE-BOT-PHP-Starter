@@ -110,7 +110,6 @@ function addWordFile($myUserId,$myAsk,$myAnswer){
 	 	$myArray = json_decode(fgets($myfile));		
 		
 		$isExists = false;
-		$total = 1;
 		foreach($myArray as $item)
 		{
 		    if($item->ask == $myAsk)
