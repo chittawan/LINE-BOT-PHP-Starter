@@ -173,12 +173,7 @@ function GetReplyMessage($text,$myUserId) {
 	}	
 	   
 	// Build message to reply back
-	if (stripos($text, "ดี") !== false) {
-		//$messages = [[
-		//  'type'=> 'sticker',
-		//  'packageId'=> '1',
-		//  'stickerId'=> '3'
-		//]];
+	/*if (stripos($text, "ดี") !== false) {
 		$messages = [[
 			'type' => 'text',
 			'text' => 'ดี'
@@ -269,7 +264,8 @@ function GetReplyMessage($text,$myUserId) {
 			'type' => 'text',
 			'text' => 'กุไงจะใครละ'
 		]];
-	} else if (stripos($text, "ไบ้หวยหน่อย") !== false) {	
+	} else */
+	if (stripos($text, "ไบ้หวยหน่อย") !== false) {	
 		$digits = 3;
                 $randNumber = rand(pow(10, $digits-1), pow(10, $digits)-1);
 		$messages = [[
