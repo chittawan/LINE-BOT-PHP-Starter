@@ -100,6 +100,69 @@ function answerQuestionFile($myFileName,$myUserId,$myAnswer){
 		}
 	}
 }
+function addWordFile($myUserId,$myAsk,$myAnswer){
+	$myFileName = 'word_' . $myUserId . '.txt';
+	if(file_exists($myFileName)){
+		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
+	 	$myArray = json_decode(fgets($myfile));		
+		
+		$isExists = false;
+		$total = 1;
+		foreach($myArray as $item)
+		{
+		    if($item->userId == $myUserId && $item->ask == $myAsk)
+		    {
+			$isExists = true;
+			$item->answer = $myAnswer;
+		    }
+		}
+		if(!$isExists){
+		  array_push($myArray,[
+				  answer => $myAnswer,
+			  	  total => 1
+				  ]);
+		}
+		
+		$json = json_encode($myArray, true);
+		if(file_exists($myFileName)){
+			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
+			fwrite($myfile, $json);
+			fclose($myfile);
+			return 'OK';
+		}
+	}
+	return 'Fail';
+}
+function findWordFile($myUserId,$myAsk){
+	$myFileName = 'word_' . $myUserId . '.txt';
+	if(file_exists($myFileName)){
+		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
+	 	$myArray = json_decode(fgets($myfile));		
+		
+		$isExists = false;
+		$total = 1;
+		foreach($myArray as $item)
+		{
+		    if($item->userId == $myUserId && stripos($myAsk, $item->ask) !== false)
+		    {
+			$isExists = true;
+			$item->answer = $myAnswer;
+		    }
+		}
+		if(!$isExists){
+		  return '';
+		}
+		
+		$json = json_encode($myArray, true);
+		if(file_exists($myFileName)){
+			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
+			fwrite($myfile, $json);
+			fclose($myfile);
+			return $myAnswer;
+		}
+	}
+}
+
 function GetReplyMessage($text,$myEvent) {
 	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
 	
@@ -203,7 +266,7 @@ function GetReplyMessage($text,$myEvent) {
 	} else if (stripos($text, "เย") !== false) {		
 		$messages = [[
 			'type' => 'text',
-			'text' => 'เยที่่ไหน'
+			'text' => 'ที่่ไหน'
 		]];
 	} else if (stripos($text, "ใคร") !== false) {		
 		$messages = [[
@@ -226,11 +289,36 @@ function GetReplyMessage($text,$myEvent) {
 		]];				
 	} 
 	
+	
 	if (stripos($text, "Cfx Myinfo") !== false) {	
 		$messages = [[
 			'type' => 'text',
 			'text' => $myEvent['source']
 		]];
+		
+	} else if (stripos($text, "Cfx add") !== false) {	
+		$myUserId = $myEvent['source']['userId'];		
+		$result = findWordFile($myUserId,$text);
+		$messages = [[
+			'type' => 'text',
+			'text' => $result
+		]];
+		
+	} else if (stripos($text, "Cfx add") !== false) {	
+		$splitStr = explode('#',$text);
+		if(count($splitStr) >= 3){
+			$myUserId = $myEvent['source']['userId'];
+			$result = addWordFile($myUserId, $splitStr[1], $splitStr[2]);
+			$messages = [[
+				'type' => 'text',
+				'text' => $result
+			]];
+		} else {
+			$messages = [[
+				'type' => 'text',
+				'text' => 'Fail'
+			]];
+		}
 		
 	} else if (stripos($text, "Cfx wmi") !== false) {	
 		$url = 'https://api.line.me/v2/bot/profile/' . $myEvent['source']['userId'];
