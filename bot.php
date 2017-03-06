@@ -100,10 +100,7 @@ function answerQuestionFile($myFileName,$myUserId,$myAnswer){
 		}
 	}
 }
-function addWordFile($myUserId,$myAsk,$myAnswer){
-	$myFileName = 'word_' . $myUserId . '.txt';
-	if(!file_exists($myFileName)){
-	   clearQuestionFile($myFileName);
+
 function addWordFile($myUserId,$myAsk,$myAnswer){
 	
 	$myFileName = 'word_' . $myUserId . '.txt';
