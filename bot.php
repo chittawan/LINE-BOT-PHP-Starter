@@ -102,6 +102,9 @@ function answerQuestionFile($myFileName,$myUserId,$myAnswer){
 }
 function addWordFile($myUserId,$myAsk,$myAnswer){
 	$myFileName = 'word_' . $myUserId . '.txt';
+	if(!file_exists($myFileName)){
+	   clearQuestionFile($myFileName);
+	}
 	if(file_exists($myFileName)){
 		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
 	 	$myArray = json_decode(fgets($myfile));		
