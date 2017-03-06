@@ -2,16 +2,12 @@
 $groupId = 'Uce91bbcb4d5185a7c0ab1ebfdbd13539';
 $userId = 'E';
 function addWordFile($myUserId,$myAsk,$myAnswer){
-	echo '2';
 	$myFileName = 'word_' . $myUserId . '.txt';
 	echo $myFileName;
 	if(!file_exists($myFileName)){
 	   clearQuestionFile($myFileName);
-		echo '2';
 	}
-	echo '4';
 	if(file_exists($myFileName)){
-		echo '5';
 		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
 	 	$myArray = json_decode(fgets($myfile));		
 		
@@ -47,7 +43,6 @@ function clearQuestionFile($fileName){
 	fclose($myfile);
 	
 }
-echo '1';
 $result =  addWordFile('Uce91bbcb4d5185a7c0ab1ebfdbd13539',"Hello",'Hi');
 echo $result;
 ?>
