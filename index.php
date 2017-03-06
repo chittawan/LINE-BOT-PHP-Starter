@@ -10,6 +10,7 @@ function addWordFile($myUserId,$myAsk,$myAnswer){
 	if(file_exists($myFileName)){
 		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
 	 	$myArray = json_decode(fgets($myfile));		
+		if(empty($myArray)) $myArray = array();
 		fclose($myfile);
 		
 		$isExists = false;
