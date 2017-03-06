@@ -104,12 +104,17 @@ function addWordFile($myUserId,$myAsk,$myAnswer){
 	$myFileName = 'word_' . $myUserId . '.txt';
 	if(!file_exists($myFileName)){
 	   clearQuestionFile($myFileName);
+function addWordFile($myUserId,$myAsk,$myAnswer){
+	
+	$myFileName = 'word_' . $myUserId . '.txt';
+	if(!file_exists($myFileName)){
+	   clearQuestionFile($myFileName);
 	}
 	if(file_exists($myFileName)){
 		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
 	 	$myArray = json_decode(fgets($myfile));		
-		fclose($myfile);
 		if(empty($myArray)) $myArray = array();
+		fclose($myfile);
 		
 		$isExists = false;
 		foreach($myArray as $item)
@@ -126,13 +131,12 @@ function addWordFile($myUserId,$myAsk,$myAnswer){
 			answer => $myAnswer
 			]);
 		}
-		
 		$json = json_encode($myArray, true);
 		if(file_exists($myFileName)){
 			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
 			fwrite($myfile, $json);
 			fclose($myfile);
-			return 'OK';
+			return 'OK.';
 		}
 	}
 	return 'Fail';
