@@ -121,9 +121,9 @@ function addWordFile($myUserId,$myAsk,$myAnswer){
 		}
 		if(!$isExists){
 		  array_push($myArray,[
-				  answer => $myAnswer,
-			  	  total => 1
-				  ]);
+			ask => $myAsk,
+			answer => $myAnswer
+			]);
 		}
 		
 		$json = json_encode($myArray, true);
