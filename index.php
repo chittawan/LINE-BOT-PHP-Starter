@@ -31,7 +31,7 @@ function addWordFile($myUserId,$myAsk,$myAnswer){
 			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
 			fwrite($myfile, $json);
 			fclose($myfile);
-			return 'OK';
+			return 'OK.';
 		}
 	}
 	return 'Fail';
