@@ -71,6 +71,7 @@ function answerQuestionFile($myFileName,$myUserId,$myAnswer){
 	 	$myArray = json_decode(fgets($myfile));		
 		
 		$isExists = false;
+		$total = 1;
 		foreach($myArray as $item)
 		{
 		    if($item->userId == $myUserId && $item->answer == $myAnswer)
@@ -78,13 +79,14 @@ function answerQuestionFile($myFileName,$myUserId,$myAnswer){
 			$isExists = true;
 			$item->answer = $myAnswer;
 			$item->total = $item->total +1;
+			$total = $item->total;
 		    }
 		}
 		if(!$isExists){
 		  array_push($myArray,[
 				  userId => $myUserId,
 				  answer => $myAnswer,
-			  	  total => 0
+			  	  total => 1
 				  ]);
 		}
 		
@@ -94,7 +96,7 @@ function answerQuestionFile($myFileName,$myUserId,$myAnswer){
 			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
 			fwrite($myfile, $json);
 			fclose($myfile);
-			return "ok";
+			return $myAnswer . ' (' . $total . ')';
 		}
 	}
 }
