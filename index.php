@@ -8,7 +8,8 @@ function addWordFile($myUserId,$myAsk,$myAnswer){
 	}
 	if(file_exists($myFileName)){
 		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
-	 	$myArray = json_decode(fgets($myFileName));		
+	 	$myArray = json_decode(fgets($myfile));		
+		fclose($myfile);
 		
 		$isExists = false;
 		foreach($myArray as $item)
