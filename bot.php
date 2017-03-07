@@ -443,6 +443,31 @@ function GetReplyMessage($text,$myUserId) {
 
 		]];
 		
+	} else if (stripos($text, "Cfx wd") !== false) {	
+		$messages = [[
+				  "type"=> "template",
+				  "altText"=> "Wedding",
+				  "template"=> [
+				      "type"=> "buttons",
+				      "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/Vit.jpg",
+				      "title"=> "Wedding",
+				      "text"=> "งานแต่ง วิทยา วันที่ 24 สิงหาคม 2560 จ.สิงค์บุรี",
+				      "actions"=> array(
+					  [
+					    "type"=> "message",
+					    "label"=> "ฉันจะไป",
+					    "text"=> "ฉันจะไป"
+					  ],
+					  [
+					    "type"=> "message",
+					    "label"=> "ฉันขอคิดดูก่อน",
+					    "text"=> "ขอคิดดูก่อน"
+					  ]
+				      )
+				  ]
+
+		]];
+		
 	} else if (stripos($text, "Cfx answer") !== false) {
 		$splitStr = explode('#',$text);
 		if(count($splitStr) >= 2){			
