@@ -462,6 +462,10 @@ function GetReplyMessage($text,$myUserId) {
 					    "type"=> "message",
 					    "label"=> "ฉันขอคิดดูก่อน",
 					    "text"=> "ขอคิดดูก่อน"
+					  ],[
+					    "type"=> "uri",
+					    "label"=> "รายะเอียด",
+					    "uri"=> "https://fathomless-anchorage-14853.herokuapp.com/Vit.jpg"
 					  ]
 				      )
 				  ]
