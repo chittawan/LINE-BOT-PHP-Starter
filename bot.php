@@ -60,6 +60,24 @@ if (!is_null($events['events'])) {
 				echo $result . "\r\n";
 				
 				$url = 'https://api.line.me/v2/bot/group/' . $userId . '/leave';
+				if ($event['source']['type'] == 'user') {
+				$userId = $event['source']['userId'];			
+				}
+				elseif ($event['source']['type'] == 'group') {
+					$userId = $event['source']['groupId'];	
+					$data = [
+						'replyToken' => $replyToken,
+						'groupId' => $userId
+					];
+				}
+				elseif ($event['source']['type'] == 'room') {
+					$userId = $event['source']['roomId'];	
+					$data = [
+						'replyToken' => $replyToken,
+						'roomId' => $userId
+					];
+				}
+				
 				$post = json_encode($data);
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 				$ch = curl_init($url);
