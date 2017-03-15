@@ -23,9 +23,9 @@ $response = GetWebService($serviceUrl);
 $result = json_decode($response);
 echo $result;
 $str = '';
-foreach (($result->data) as $item){
-	echo $item;
-	$str .= ($item->CheckId) . " " . ($item->CheckName) . " " . ($item->DiffTime) . "\r\n";
+foreach (($result as $data){
+	echo $data;
+	//$str .= ($item->CheckId) . " " . ($item->CheckName) . " " . ($item->DiffTime) . "\r\n";
 }
 
 echo $str;
