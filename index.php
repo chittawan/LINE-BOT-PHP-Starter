@@ -29,14 +29,16 @@ foreach($result->{'data'} as $mydata)
 
 foreach($result as $mydata)
 {
-	echo $mydata;
+	foreach($mydata as $item){
+		echo $item->CheckId;
+	}
 }
 
 foreach($result[0] as $mydata)
 {
 	echo $mydata;
 }
-echo $result;
 $str = 'n';
 echo $str;
+echo $result;
 ?>
