@@ -15,12 +15,12 @@ function GetWebService($url) {
 	
 	$jsonResult = json_decode($result, true);
 	
-	return $result;
+	return $jsonResult;
 }
 
 $serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
 $response = GetWebService($serviceUrl);
-$result = json_decode($response);
+$result = $response;
 echo $result;
 $str = 'a';
 foreach ($result->data as $item){
