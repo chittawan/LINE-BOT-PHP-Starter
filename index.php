@@ -28,6 +28,6 @@ foreach ($result as $data) {
 		echo $item -> DiffTime;
 	}
 }
-echo $result;
+//echo $result;
 //echo "OK";
 ?>
