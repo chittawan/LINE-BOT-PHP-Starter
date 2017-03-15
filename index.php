@@ -22,9 +22,8 @@ $serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/Rea
 $response = GetWebService($serviceUrl);
 $result = json_decode($response);
 foreach($result as $data){
-	echo $data;
 	foreach($data as $item){
-		echo $item;
+		echo $item->CheckId;
 	}
 }
 ?>
