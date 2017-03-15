@@ -27,6 +27,6 @@ foreach ($result as $data){
 		$str .= $item -> CheckId . " " . $item -> CheckName . " " . $item -> DiffTime . "\r\n";
 	}
 }
-//echo $result;
+echo $str;
 //echo "OK";
 ?>
