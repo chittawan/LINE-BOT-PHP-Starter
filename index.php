@@ -22,7 +22,7 @@ $serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/Rea
 $response = GetWebService($serviceUrl);
 $result = $response;
 
-foreach($result as $mydata)
+foreach($result->{'data'} as $mydata)
 {
 	echo $mydata;
 }
