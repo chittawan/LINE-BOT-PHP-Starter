@@ -20,7 +20,7 @@ function GetWebService($url) {
 
 $serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
 $response = GetWebService($serviceUrl);
-$result = $response;
+$result = (array)$response;
 echo $result;
 echo $result->data;
 ?>
