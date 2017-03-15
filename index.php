@@ -13,7 +13,7 @@ function GetWebService($url) {
 	$result = curl_exec($ch);
 	curl_close($ch);
 	
-	$jsonResult = json_decode($result, true);
+	$jsonResult = json_decode($result);
 	
 	return $jsonResult;
 }
