@@ -23,7 +23,7 @@ $response = GetWebService($serviceUrl);
 $result = json_decode($response);
 echo $result;
 $str = 'a';
-foreach ($result as $item){
+foreach ($result->data as $item){
 	echo $item;	
 }
 
