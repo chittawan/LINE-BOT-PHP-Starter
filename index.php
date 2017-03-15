@@ -24,7 +24,7 @@ $result = json_decode($response);
 $str = "";
 foreach ($result as $data){
 	foreach ($data AS $item){
-		$str += $item -> CheckId . " " . $item -> CheckName . " " . $item -> DiffTime . "\r\n";
+		$str .= $item -> CheckId . " " . $item -> CheckName . " " . $item -> DiffTime . "\r\n";
 	}
 }
 //echo $result;
