@@ -20,6 +20,11 @@ function GetWebService($url) {
 
 $serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
 $result = GetWebService($serviceUrl);
+foreach ($result -> data as $event) {
+	echo $event -> CheckId;
+	echo $event -> CheckName;
+	echo $event -> DiffTime;
+}
 echo $result;
 //echo "OK";
 ?>
