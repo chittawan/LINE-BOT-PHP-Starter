@@ -23,8 +23,8 @@ $response = GetWebService($serviceUrl);
 $result = $response;
 echo $result;
 $str = 'a';
-foreach ($result->data as $item){
-	echo $item->CheckName;	
+foreach ( $result->data AS $item){
+	echo $item->CheckName
 }
 
 echo $str;
