@@ -13,14 +13,14 @@ function GetWebService($url) {
 	$result = curl_exec($ch);
 	curl_close($ch);
 	
-	$jsonResult = json_decode($result,true);
+	$jsonResult = json_decode($result);
 	
 	return $jsonResult;
 }
 
 $serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
 $response = GetWebService($serviceUrl);
-$result = json_decode($response);
+$result = $response;
 
 foreach($result->{'data'} as $mydata)
 {
