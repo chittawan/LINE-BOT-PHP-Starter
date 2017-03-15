@@ -22,5 +22,5 @@ $serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/Rea
 $response = GetWebService($serviceUrl);
 $result = (array)$response;
 echo $result;
-echo $result->data;
+echo $result[0]->data;
 ?>
