@@ -605,4 +605,20 @@ function GetReplyMessage($text,$myUserId) {
 	} 	
 	return $messages;
 }
+
+function GetWebService($url) {
+	$headers = array('Content-Type: application/json');
+
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	
+	$jsonResult = json_decode($result, true);
+	
+	return $result;
+}
 echo "OK";
