@@ -24,6 +24,6 @@ $result = $response;
 echo $result;
 $str = 'a';
 $data = $result->data;
-echod $data;
+echo $data;
 echo $str;
 ?>
