@@ -24,10 +24,15 @@ $result = $response;
 
 foreach($result->{'data'} as $mydata)
 {
-	echo $mydata;
+	echo $mydata->CheckId;
 }
 
 foreach($result as $mydata)
+{
+	echo $mydata;
+}
+
+foreach($result[0] as $mydata)
 {
 	echo $mydata;
 }
