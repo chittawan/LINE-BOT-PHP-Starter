@@ -328,7 +328,7 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 		
 	} else if (stripos($text, "Cfx check") !== false) {	
-		$result = GetWebService($serviceUrl);
+		$response = GetWebService($serviceUrl);
 		$result = json_decode($response);
 		$str = '';
 		foreach($result as $data){
