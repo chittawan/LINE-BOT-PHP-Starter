@@ -329,9 +329,16 @@ function GetReplyMessage($text,$myUserId) {
 		
 	} else if (stripos($text, "Cfx check") !== false) {	
 		$result = GetWebService($serviceUrl);
+		$result = json_decode($response);
+		$str = '';
+		foreach($result as $data){
+			foreach($data as $item){
+				$str .=  ($item->CheckId) . ' ' . ($item->CheckName) . ' ' .($item->DiffTime) . ' ' . '\n';
+			}
+		}
 		$messages = [[
 			'type' => 'text',
-			'text' => $result
+			'text' => $str
 		]];
 		
 	} else if (stripos($text, "Cfx add") !== false) {	
@@ -617,8 +624,8 @@ function GetWebService($url) {
 	$result = curl_exec($ch);
 	curl_close($ch);
 	
-	$jsonResult = json_decode($result, true);
+	$jsonResult = json_decode($result);
 	
-	return $result;
+	return $jsonResult;
 }
 echo "OK";
