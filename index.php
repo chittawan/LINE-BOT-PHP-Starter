@@ -22,12 +22,10 @@ $serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/Rea
 $response = GetWebService($serviceUrl);
 $result = json_decode($response);
 echo $result;
-$str = '';
-foreach ($result as $data){
-	echo $data;
-	//$str .= ($item->CheckId) . " " . ($item->CheckName) . " " . ($item->DiffTime) . "\r\n";
+$str = 'a';
+foreach ($result as $item){
+	echo $item;	
 }
 
 echo $str;
-//echo "OK";
 ?>
