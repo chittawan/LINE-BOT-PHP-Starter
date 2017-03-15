@@ -26,6 +26,11 @@ foreach($result->{'data'} as $mydata)
 {
 	echo $mydata;
 }
+
+foreach($result as $mydata)
+{
+	echo $mydata;
+}
 echo $result;
 $str = 'n';
 echo $str;
