@@ -194,8 +194,7 @@ function findWordFile($myUserId,$myAsk){
 }
 
 function GetReplyMessage($text,$myUserId) {
-	$serviceUrl = 'http://vsmsdev.apps.thaibev.com/linebot/linebotWCF';
-	
+	$serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
 	if(stripos($text, "หุบปาก") !== false){
 		$myfile = fopen("text.txt", "w") or die("Unable to open file!");
 		fwrite($myfile, 1);
@@ -326,6 +325,13 @@ function GetReplyMessage($text,$myUserId) {
 		$messages = [[
 			'type' => 'text',
 			'text' => $myUserId
+		]];
+		
+	} else if (stripos($text, "Cfx check") !== false) {	
+		$result = GetWebService($serviceUrl);
+		$messages = [[
+			'type' => 'text',
+			'text' => $result
 		]];
 		
 	} else if (stripos($text, "Cfx add") !== false) {	
