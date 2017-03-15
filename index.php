@@ -23,7 +23,7 @@ $response = GetWebService($serviceUrl);
 $result = (array)$response;
 foreach($result as $data){
 	echo $data;
-	foreach($data as $item){
+	foreach(json_decode($data) as $item){
 		echo $item;
 	}
 }
