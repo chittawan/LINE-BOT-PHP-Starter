@@ -19,6 +19,7 @@ function GetWebService($url) {
 }
 
 $serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
-$result = GetWebService($serviceUrl);
-echo $result;
+//$result = GetWebService($serviceUrl);
+//echo $result;
+echo "OK";
 ?>
