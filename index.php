@@ -21,10 +21,11 @@ function GetWebService($url) {
 $serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
 $response = GetWebService($serviceUrl);
 $result = json_decode($response);
-$str = "";
-foreach ($result as $data){
+echo $result;
+foreach ($result As $data){
+	echo $data;
 	foreach ($data AS $item){
-		$str .= $item -> CheckId . " " . $item -> CheckName . " " . $item -> DiffTime . "\r\n";
+		$str .= ($item->CheckId) . " " . ($item->CheckName) . " " . ($item->DiffTime) . "\r\n";
 	}
 }
 echo $str;
