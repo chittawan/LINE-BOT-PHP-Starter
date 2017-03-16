@@ -334,7 +334,7 @@ function GetReplyMessage($text,$myUserId) {
 		$str = '';
 		foreach($result as $data){
 			foreach($data as $item){
-				$str .=  '[' . ($item->DiffTime) . '] ' ($item->CheckId) . ' ' . ($item->CheckName) . ' ' . ($item->DrawDown) . '% ' . ($item->Lots) . ' ' . ($item->Serv) . "\n";
+				$str .=  '[' . ($item->DiffTime) . '] ' . ($item->CheckId) . ' ' . ($item->CheckName) . ' ' . ($item->DrawDown) . '% ' . ($item->Lots) . ' ' . ($item->Serv) . "\n";
 			}
 		}
 		$messages = [[
