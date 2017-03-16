@@ -353,7 +353,7 @@ function GetReplyMessage($text,$myUserId) {
 			foreach($result as $data){
 				foreach($data as $item){
 					$status = (15 > $item->DiffTime) ? "OK" : "Fail";
-					$str .=  'ID : ' . ($item->CheckId) . "\n Name : " . ($item->CheckName) . "\n Lost : " . ($item->Lots) . "\n Drawdown : " . ($item->DrawDown) . "%\n Status : " . $status;
+					$str .=  'ID : ' . ($item->CheckId) . "\nName : " . ($item->CheckName) . "\nLost : " . ($item->Lots) . "\nDrawdown : " . ($item->Drawdown) . "%\nStatus : " . $status;
 				}
 			}
 		}
