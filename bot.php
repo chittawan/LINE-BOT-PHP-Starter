@@ -342,7 +342,7 @@ function GetReplyMessage($text,$myUserId) {
 			'text' => $str
 		]];
 		
-	} else if (stripos($text, "Cfx check#") !== false) {	
+	} else if (stripos($text, "Cfx check") !== false) {	
 		$splitStr = explode('#',$text);
 		$str = 'Fail';
 		if(count($splitStr) >= 2){	
@@ -352,8 +352,8 @@ function GetReplyMessage($text,$myUserId) {
 			$str = '';
 			foreach($result as $data){
 				foreach($data as $item){
-					$status = 15 > ($item->DiffTime) ? "OK" : "Fail";
-					$str .=  'ID : ' . ($item->CheckId) . "\n Name : " . ($item->CheckName) . "\n Lost : " . ($item->Lots) . "\n Drawdown : " . ($item->DrawDown) . "%\n Status : " . $status . "\n";
+					$status = (15 > $item->DiffTime) ? "OK" : "Fail";
+					$str .=  'ID : ' . ($item->CheckId) . "\n Name : " . ($item->CheckName) . "\n Lost : " . ($item->Lots) . "\n Drawdown : " . ($item->DrawDown) . "%\n Status : " . $status;
 				}
 			}
 		}
