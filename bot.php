@@ -194,7 +194,7 @@ function findWordFile($myUserId,$myAsk){
 }
 
 function GetReplyMessage($text,$myUserId) {
-	$serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
+	//$serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
 	if(stripos($text, "หุบปาก") !== false){
 		$myfile = fopen("text.txt", "w") or die("Unable to open file!");
 		fwrite($myfile, 1);
@@ -327,13 +327,34 @@ function GetReplyMessage($text,$myUserId) {
 			'text' => $myUserId
 		]];
 		
-	} else if (stripos($text, "Cfx check") !== false) {	
+	} else if (stripos($text, "Cfx serv") !== false) {	
+		$serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
 		$response = GetWebService($serviceUrl);
 		$result = json_decode($response);
 		$str = '';
 		foreach($result as $data){
 			foreach($data as $item){
-				$str .=  ($item->CheckId) . ' ' . ($item->CheckName) . ' ' .($item->DiffTime) . "\n";
+				$str .=  '[' . ($item->DiffTime) . '] ' ($item->CheckId) . ' ' . ($item->CheckName) . ' ' . ($item->DrawDown) . '% ' . ($item->Lots) . ' ' . ($item->Serv) . "\n";
+			}
+		}
+		$messages = [[
+			'type' => 'text',
+			'text' => $str
+		]];
+		
+	} else if (stripos($text, "Cfx check#") !== false) {	
+		$splitStr = explode('#',$text);
+		$str = 'Fail';
+		if(count($splitStr) >= 2){	
+			$serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheckById/' . $splitStr[1];
+			$response = GetWebService($serviceUrl);
+			$result = json_decode($response);
+			$str = '';
+			foreach($result as $data){
+				foreach($data as $item){
+					$status = 15 > ($item->DiffTime) ? "OK" : "Fail";
+					$str .=  'ID : ' . ($item->CheckId) . "\n Name : " . ($item->CheckName) . "\n Lost : " . ($item->Lots) . "\n Drawdown : " . ($item->DrawDown) . "%\n Status : " . $status . "\n";
+				}
 			}
 		}
 		$messages = [[
