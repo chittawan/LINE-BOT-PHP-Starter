@@ -324,9 +324,9 @@ function GetReplyMessage($text,$myUserId) {
 		$splitStr = explode('#',$text);
 		$str = 'Fail';
 		if(count($splitStr) >= 2){	
-			$serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/CheckTOId/' . $splitStr[1];
-			$response = GetWebService($serviceUrl);
-			$str = json_decode($response);
+			$serviceUrl = 'http://webgis1.apps.thaibev.com/checkService/CheckService.svc/CheckTOId/' . $splitStr[1];
+			$response = GetWebService2($serviceUrl);
+			$str = $response;
 		}
 		$messages = [[
 			'type' => 'text',
@@ -647,6 +647,19 @@ function GetReplyMessage($text,$myUserId) {
 	return $messages;
 }
 
+function GetWebService2($url) {
+	$headers = array('Content-Type: application/json');
+
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	
+	return $result;
+}
 function GetWebService($url) {
 	$headers = array('Content-Type: application/json');
 
