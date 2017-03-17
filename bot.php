@@ -320,6 +320,19 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 	} 
 	
+	if (stripos($text, "toms checkTO") !== false) {	
+		$splitStr = explode('#',$text);
+		$str = 'Fail';
+		if(count($splitStr) >= 2){	
+			$serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/CheckTOId/' . $splitStr[1];
+			$response = GetWebService($serviceUrl);
+			$str = json_decode($response);
+		}
+		$messages = [[
+			'type' => 'text',
+			'text' => $str
+		]];
+	} 
 	
 	if (stripos($text, "Cfx Myinfo") !== false) {	
 		$messages = [[
