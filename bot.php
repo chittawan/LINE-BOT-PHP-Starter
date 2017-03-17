@@ -58,7 +58,7 @@ if (!is_null($events['events'])) {
 				$result = curl_exec($ch);
 				curl_close($ch);
 				echo $result . "\r\n";
-				
+				/*
 				$url = 'https://api.line.me/v2/bot/group/' . $userId . '/leave';
 				if ($event['source']['type'] == 'user') {
 				$userId = $event['source']['userId'];			
@@ -89,6 +89,7 @@ if (!is_null($events['events'])) {
 				$result = curl_exec($ch);
 				curl_close($ch);
 				echo $result . "\r\n";
+				*/
 			}
 		}
 	}
