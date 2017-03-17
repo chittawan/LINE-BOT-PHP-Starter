@@ -337,7 +337,7 @@ function GetReplyMessage($text,$myUserId) {
 	if (stripos($text, "Cfx Myinfo") !== false) {	
 		$messages = [[
 			'type' => 'text',
-			'text' => $myUserId
+			'text' => str_replace($myUserId,"\n","\n")
 		]];
 		
 	} else if (stripos($text, "Cfx serv") !== false) {	
