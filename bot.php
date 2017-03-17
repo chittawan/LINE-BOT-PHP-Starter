@@ -325,7 +325,7 @@ function GetReplyMessage($text,$myUserId) {
 		$str = 'Fail';
 		if(count($splitStr) >= 2){	
 			$serviceUrl = 'http://webgis1.apps.thaibev.com/checkService/CheckService.svc/CheckTOId/' . $splitStr[1];
-			$response = GetWebService2($serviceUrl);
+			$response = GetWebService($serviceUrl);
 			$str = $response;
 		}
 		$messages = [[
