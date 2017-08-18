@@ -191,7 +191,7 @@ function findWordFile($myUserId,$myAsk){
 	}
 }
 function GetReplyMessage($text,$myUserId) {
-	//$serviceUrl = 'http://webgis1.apps.thaibev.com/CheckService/CheckService.svc/ReadCheck';
+	$serviceUrl = 'http://tomsvpn.apps.thaibev.com/TOMsAPIBotLine/CheckService.svc';
 	if(stripos($text, "หุบปาก") !== false){
 		$myfile = fopen("text.txt", "w") or die("Unable to open file!");
 		fwrite($myfile, 1);
@@ -317,6 +317,15 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 	} 
 	
+	if ($text == 'itoms') !== false) {	
+			$myUrl = $serviceUrl . '/SayHello';
+			$response = GetWebService($myUrl);
+			$str = $response;
+		$messages = [[
+			'type' => 'text',
+			'text' => $str
+		]];
+	} else 
 	if (stripos($text, "toms checkTO") !== false) {	
 		$splitStr = explode('#',$text);
 		$str = 'Fail';
