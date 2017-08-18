@@ -337,11 +337,24 @@ function GetReplyMessage($text,$myUserId) {
 			'text' => $str
 		]];
 	} 	
-	else if (stripos($text, "Itomstestx") !== false) {	
-		$splitStr = explode('#',$text);
+	else if (stripos($text, "Itomschangemile") !== false) {	
+		$splitStr = explode('/',$text);
 		$str = 'Fail';
 		if(count($splitStr) >= 2){	
-			$myUrl = $serviceUrl . '/exec2' . '/test' . '?param1=' . 'a' . '?param2=' . 'b';
+			$myUrl = $serviceUrl . '/exec2' . '/' . $splitStr[0] . '?param1=' . $splitStr[1] . '?param2=' . $splitStr[2];
+			$response = GetWebService($myUrl);
+			$str = $response;
+		}
+		$messages = [[
+			'type' => 'text',
+			'text' => $str
+		]];
+	} 	
+	else if (stripos($text, "Itomssetsc") !== false) {	
+		$splitStr = explode('/',$text);
+		$str = 'Fail';
+		if(count($splitStr) >= 2){	
+			$myUrl = $serviceUrl . '/exec2' . '/' . $splitStr[0] . '?param1=' . $splitStr[1] . '?param2=' . $splitStr[2];
 			$response = GetWebService($myUrl);
 			$str = $response;
 		}
