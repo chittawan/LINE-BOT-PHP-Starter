@@ -317,7 +317,7 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 	} 
 	
-	if ($text === 'itoms') {	
+	if ($text === 'Itoms') {	
 			$myUrl = $serviceUrl . '/SayHello';
 			$response = GetWebService($myUrl);
 			$str = $response;
@@ -325,13 +325,13 @@ function GetReplyMessage($text,$myUserId) {
 			'type' => 'text',
 			'text' => $str
 		]];
-	} else 
-	if (stripos($text, "toms checkTO") !== false) {	
+	} 
+	else if (stripos($text, "Itomstest") !== false) {	
 		$splitStr = explode('#',$text);
 		$str = 'Fail';
 		if(count($splitStr) >= 2){	
-			$serviceUrl = 'http://webgis1.apps.thaibev.com/checkService/CheckService.svc/CheckTOId/' . $splitStr[1];
-			$response = GetWebService($serviceUrl);
+			$myUrl = $serviceUrl . '/exec2' . '?param1=' . 'a' . '?param2=' . 'b';
+			$response = GetWebService($myUrl);
 			$str = $response;
 		}
 		$messages = [[
