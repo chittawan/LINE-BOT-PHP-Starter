@@ -328,6 +328,17 @@ function GetReplyMessage($text,$myUserId) {
 	} 
 	else if (stripos($text, "Itomstest") !== false) {	
 		$splitStr = explode('#',$text);
+		$str = 'Fail';	
+			$myUrl = $serviceUrl . '/exec2' . '/test' . '?param1=' . 'a' . '?param2=' . 'b';
+			$response = GetWebService($myUrl);
+			$str = $response;
+		$messages = [[
+			'type' => 'text',
+			'text' => $str
+		]];
+	} 	
+	else if (stripos($text, "Itomstestx") !== false) {	
+		$splitStr = explode('#',$text);
 		$str = 'Fail';
 		if(count($splitStr) >= 2){	
 			$myUrl = $serviceUrl . '/exec2' . '/test' . '?param1=' . 'a' . '?param2=' . 'b';
