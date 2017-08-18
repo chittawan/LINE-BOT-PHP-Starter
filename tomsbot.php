@@ -317,7 +317,7 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 	} 
 	
-	if ($text == 'itoms') !== false) {	
+	if ($text === 'itoms') {	
 			$myUrl = $serviceUrl . '/SayHello';
 			$response = GetWebService($myUrl);
 			$str = $response;
