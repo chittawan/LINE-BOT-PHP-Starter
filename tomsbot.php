@@ -330,7 +330,7 @@ function GetReplyMessage($text,$myUserId) {
 		$splitStr = explode('#',$text);
 		$str = 'Fail';
 		if(count($splitStr) >= 2){	
-			$myUrl = $serviceUrl . '/exec2' . '?param1=' . 'a' . '?param2=' . 'b';
+			$myUrl = $serviceUrl . '/exec2' . '/test' . '?param1=' . 'a' . '?param2=' . 'b';
 			$response = GetWebService($myUrl);
 			$str = $response;
 		}
