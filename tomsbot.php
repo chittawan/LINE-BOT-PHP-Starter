@@ -192,8 +192,14 @@ function findWordFile($myUserId,$myAsk){
 }
 function GetReplyMessage($text,$myUserId) {
 	$serviceUrl = 'http://tomsvpn.apps.thaibev.com/TOMsAPIBotLine/CheckService.svc';
-	
-	if ($text === 'Itoms') {	
+	if ($text === 'ItomsSay') {	
+			$str = 'Hi';
+		$messages = [[
+			'type' => 'text',
+			'text' => $str
+		]];
+	} 
+	else if ($text === 'Itoms') {	
 			$myUrl = $serviceUrl . '/SayHello';
 			$response = GetWebService($myUrl);
 			$str = $response;
