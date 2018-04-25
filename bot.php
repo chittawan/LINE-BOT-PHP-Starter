@@ -448,7 +448,7 @@ function GetReplyMessage($text,$myUserId) {
 				      "type"=> "carousel",
 				      "columns"=> array(
 					      [
-					    "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/party.jpg",
+					    "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/Party.jpg",
 					    "title"=> "this is menu",
 					    "text"=> "description",
 					    "actions"=> array(
