@@ -447,6 +447,28 @@ function GetReplyMessage($text,$myUserId) {
 				  "template"=> [
 				      "type"=> "carousel",
 				      "columns"=> array(
+					      [
+					    "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/party.jpg",
+					    "title"=> "this is menu",
+					    "text"=> "description",
+					    "actions"=> array(
+						[
+						    "type"=> "message",
+						    "label"=> "ฉันจะไป",
+						    "text"=> "ฉันจะไป"
+						],
+						[
+						    "type"=> "message",
+						    "label"=> "ฉันไป",
+						    "text"=> "ฉันไป"
+						],
+						[
+						    "type"=> "uri",
+						    "label"=> "View detail",
+						    "uri"=> "https://www.google.co.th/maps/place/wedding+and+conference+venue/@13.8739451,100.581968,15z/data=!4m5!3m4!1s0x0:0xe03669df900ca167!8m2!3d13.8739451!4d100.581968",
+						]
+					    )
+					  ],
 					  [
 					    "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/x1.jpg",
 					    "title"=> "this is menu",
