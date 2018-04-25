@@ -518,29 +518,33 @@ function GetReplyMessage($text,$myUserId) {
 
 		]];
 		
-	} else if (stripos($text, "Cfx xy") !== false) {	
+	} else if (stripos($text, "Cfx rov") !== false) {	
 		$messages = [[
 				  "type"=> "template",
 				  "altText"=> "this is a buttons template",
 				  "template"=> [
 				      "type"=> "buttons",
-				      "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/YDSY4925.JPG",
+				      "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/rov.jpg",
 				      "title"=> "Menu",
 				      "text"=> "Please select",
 				      "actions"=> array(
 					  [
 					    "type"=> "message",
-					    "label"=> "Yes",
-					    "text"=> "yes"
+					    "label"=> "กุเล่นด้วย",
+					    "text"=> "กุเล่นด้วย"
 					  ],
 					  [
 					    "type"=> "message",
-					    "label"=> "No",
-					    "text"=> "no"
+					    "label"=> "ยังไม่เล่น",
+					    "text"=> "ยังไม่เล่น"
 					  ],[
-					    "type"=> "uri",
-					    "label"=> "View detail",
-					    "uri"=> "https://www.dropbox.com/sh/i7jfxjntjldsglo/AAAufjP0Q8jg5SHJl6yJZUv6a?dl=0"
+					    "type"=> "message",
+					    "label"=> "พอก่อน",
+					    "text"=> "หัวร้อนแล้ว พอก่อน"
+					  ],[
+					    "type"=> "message",
+					    "label"=> "ขอ 5 นาที",
+					    "text"=> "ขอ 5 นาที"
 					  ]
 				      )
 				  ]
