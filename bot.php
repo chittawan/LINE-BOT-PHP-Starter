@@ -525,6 +525,15 @@ function GetReplyMessage($text,$myUserId) {
 
 		]];
 		
+	} else if (stripos($text, "Cfx mp4") !== false) {	
+		$messages = [[
+				  "type"=> "template",
+				   "type"=> "video",
+				   "originalContentUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/playWd.mp4",
+				   "previewImageUrl": "https://fathomless-anchorage-14853.herokuapp.com/preview.jpg"
+
+		]];
+		
 	} else if (stripos($text, "Cfx wd") !== false) {	
 		$messages = [[
 				  "type"=> "template",
