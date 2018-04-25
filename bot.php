@@ -530,7 +530,7 @@ function GetReplyMessage($text,$myUserId) {
 				  "type"=> "template",
 				   "type"=> "video",
 				   "originalContentUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/playWd.mp4",
-				   "previewImageUrl": "https://fathomless-anchorage-14853.herokuapp.com/preview.jpg"
+				   "previewImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/preview.jpg"
 
 		]];
 		
