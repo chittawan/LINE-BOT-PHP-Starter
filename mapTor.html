@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div style="width:100%;height:800px;" id="map"> </div>
+</body>
+</html>
+<script>
+    //var tiles = new L.tileLayer('', {//'http://map.thaibev.com/map/msn-server/tile.php?zoom={z}&x={x}&y={y}&mode=icons&proj=epsg3857'
+    //    maxZoom: 18,
+    //    attribution: ''//&copy; <a href="http://longdomap.com">longdomap</a> contributors, Points &copy 2016 Thaibev
+    //});
+    var debugLayer = L.gridLayer();
+
+    debugLayer.createTile = function (coords) {
+        // create a <canvas> element for drawing
+        var tile = L.DomUtil.create('canvas', 'leaflet-tile');
+
+        // setup tile width and height according to the options
+        var size = this.getTileSize();
+        tile.width = size.x;
+        tile.height = size.y;
+
+        // get a canvas context and draw something on it using coords.x, coords.y and coords.z
+        var context = tile.getContext('2d');
+
+        context.beginPath();
+        context.rect(0, 0, 256, 256);
+        context.lineWidth = 2;
+        context.strokeStyle = 'white';
+        context.stroke();
+
+
+        var img = new Image();
+      
+        var baseUrl = 'https://fathomless-anchorage-14853.herokuapp.com/map/' + coords.z + '/' + coords.x + coords.y + coords.z + '.jpg';
+
+        switch (coords.z) {
+
+            case 0: img.src = baseUrl; break;
+            case 1: img.src = baseUrl; break;
+            case 2: img.src = baseUrl; break;
+            default: {
+                //context.font = "20px Arial";
+                //context.fillStyle = 'white';
+                //context.fillText(coords.x + " / " + coords.y + " / " + coords.z, 80, 140);
+                img.src = 'https://fathomless-anchorage-14853.herokuapp.com/map/unknow.jpg';
+            } break;
+
+        }
+
+        context.drawImage(img, 0, 0, 256, 256);
+
+        // return the tile so it can be rendered on screen
+        return tile;
+    }
+    var layerOptions = {
+        attribution: "",
+        minZoom: 10,
+        maxZoom: 21
+    }
+    var lmap = L.map('map', {
+        attributionControl: false,
+        minZoom: 0,
+        maxZoom: 20,
+    });
+    lmap.setView([0, 0], 3);
+    debugLayer.addTo(lmap);
+
+    //var latlng = L.latLng(13.80800, 100.5500000);
+
+    //var lmap = L.map('map', { center: latlng, zoom: 6, layers: [debugLayer], zoomControl: false });
+
+    //var imageUrl = '../imgs/preview.jpg',
+    // imageBounds = [
+    //   [13.00, 100.00], [13.019200, 100.014400]
+    // ];
+    //var image = L.imageOverlay(imageUrl, imageBounds).addTo(lmap);
+    //lmap.fitBounds(imageBounds);
+
+    //// imageBounds = [
+    ////   [13.019200, 100.014400], [13.038400, 100.028800]
+    //// ];
+    ////var image = L.imageOverlay(imageUrl, imageBounds).addTo(lmap);
+    ////lmap.fitBounds(imageBounds);
+
+    //var videoUrl = 'https://www.mapbox.com/bites/00188/patricia_nasa.webm',
+    //videoBounds = [[13.00, 100.00], [13.00, 130.00]];
+    //var video = L.VideoOverlay(videoUrl, videoBounds).addTo(lmap);
+    //lmap.fitBounds(imageBounds);
+
+</script>
