@@ -518,6 +518,35 @@ function GetReplyMessage($text,$myUserId) {
 
 		]];
 		
+	} else if (stripos($text, "Cfx hbd") !== false) {	
+		$messages = [[
+				  "type"=> "template",
+				  "altText"=> "this is a buttons template",
+				  "template"=> [
+				      "type"=> "buttons",
+				      "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/hbd_1.jpg",
+				      "title"=> "Menu",
+				      "text"=> "Please select",
+				      "actions"=> array(
+					  [
+					    "type"=> "message",
+					    "label"=> "Happy 1",
+					    "text"=> "ขอให้มีแต่ความสุขนะ"
+					  ],
+					  [
+					    "type"=> "message",
+					    "label"=> "Happy 2",
+					    "text"=> "ขอให้ร่ำรวยเงินทองไหลมาเทมา"
+					  ],[
+					    "type"=> "message",
+					    "label"=> "Happy 3",
+					    "text"=> "ขอให้สุขภาพแข็งแรง ไม่มีโรคภัย"
+					  ]
+				      )
+				  ]
+
+		]];
+		
 	} else if (stripos($text, "Cfx rov") !== false) {	
 		$messages = [[
 				  "type"=> "template",
