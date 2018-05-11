@@ -553,7 +553,7 @@ function GetReplyMessage($text,$myUserId) {
 				  "altText"=> "this is a buttons template",
 				  "template"=> [
 				      "type"=> "buttons",
-				      "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/rov.jpg",
+				      "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/rov-flash.jpg",
 				      "title"=> "Menu",
 				      "text"=> "Please select",
 				      "actions"=> array(
