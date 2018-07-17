@@ -452,6 +452,11 @@ function GetReplyMessage($text,$myUserId) {
 					    "actions"=> array(
 						[
 						    "type"=> "uri",
+						    "label"=> "การ์ดเชิญ",
+						    "uri"=> "https://fathomless-anchorage-14853.herokuapp.com/Card.jpg",
+						],
+						[
+						    "type"=> "uri",
 						    "label"=> "สถานที่จัดงาน",
 						    "uri"=> "https://www.google.com/maps/place/wedding+and+conference+venue/@13.8753719,100.5806225,15.75z/data=!4m12!1m6!3m5!1s0x30e282d3bfc13d97:0xe03669df900ca167!2swedding+and+conference+venue!8m2!3d13.8739451!4d100.581968!3m4!1s0x30e282d3bfc13d97:0xe03669df900ca167!8m2!3d13.8739451!4d100.581968",
 						],
