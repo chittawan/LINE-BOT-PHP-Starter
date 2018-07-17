@@ -445,10 +445,8 @@ function GetReplyMessage($text,$myUserId) {
 				 "type"=> "template",
 				  "altText"=> "this is a carousel template",
 				  "template"=> [
-				      "type"=> "video",
-				     //"originalContentUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/playWd.mp4",
-				     //"previewImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/preview.jpg"
-				     //"thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/WeddingPraeFilm.jpg",
+				      "type"=> "buttons",
+				      "thumbnailImageUrl"=> "https://fathomless-anchorage-14853.herokuapp.com/WeddingPraeFilm.jpg",
 					    "title"=> "Wedding",
 					    "text"=> "รายละเอียด",
 					    "actions"=> array(
@@ -457,11 +455,11 @@ function GetReplyMessage($text,$myUserId) {
 						    "label"=> "สถานที่จัดงาน",
 						    "uri"=> "https://www.google.com/maps/place/wedding+and+conference+venue/@13.8753719,100.5806225,15.75z/data=!4m12!1m6!3m5!1s0x30e282d3bfc13d97:0xe03669df900ca167!2swedding+and+conference+venue!8m2!3d13.8739451!4d100.581968!3m4!1s0x30e282d3bfc13d97:0xe03669df900ca167!8m2!3d13.8739451!4d100.581968",
 						],
-						/*[
+						[
 						    "type"=> "uri",
 						    "label"=> "รับชม Teaser",
 						    "uri"=> "https://drive.google.com/open?id=1gKsTQTQI_2DIMJHQlS3CU-du7Wtql2cF"
-						]*/
+						]
 					    )
 				  ]
 		]];
