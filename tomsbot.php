@@ -246,8 +246,7 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 	} else if (stripos($text, "itoms Command") !== false) {	
 		$splitStr = explode('/',$text);
-		$str = new \LINE\LINEBot\MessageBuilder\MultiMessageBuilder();
-		$str->add(new TextMessageBuilder('tomschangemile/ทะเบียนรถ(ไม่มีเว้นวรรคหรืออักขระพิเศษ)/เลขไมล์', 'itomssetsc/เลขที่ Drop จาก TOMS2/16(Fix เนื่องจากจบงานได้อย่างเดียว)'))				
+		$str = 'tomschangemile/ทะเบียนรถ(ไม่มีเว้นวรรคหรืออักขระพิเศษ)/เลขไมล์ \r\n itomssetsc/เลขที่ Drop จาก TOMS2/16(Fix เนื่องจากจบงานได้อย่างเดียว)';		
 		$messages = [[
 			'type' => 'text',
 			'text' => $str
