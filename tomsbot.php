@@ -236,7 +236,7 @@ function GetReplyMessage($text,$myUserId) {
 		$splitStr = explode('/',$text);
 		$str = 'Fail';
 		if(count($splitStr) >= 2){	
-			$myUrl = $serviceUrl . '/exec2' . '/' . 'itomssetsc' . '?param1=' . $splitStr[1] . '&param2=' . $splitStr[2];
+			$myUrl = $serviceUrl . '/exec2' . '/' . 'Itomssetsc' . '?param1=' . $splitStr[1] . '&param2=' . $splitStr[2];
 			$response = GetWebService($myUrl);
 			$str = $response;
 		}
