@@ -232,7 +232,7 @@ function GetReplyMessage($text,$myUserId) {
 			'text' => $str
 		]];
 	} 	
-	else if (stripos($text, "Itomssetsc") !== false) {	
+	else if (stripos($text, "Itomsforcesetsc") !== false) {	
 		$splitStr = explode('/',$text);
 		$str = 'Fail';
 		if(count($splitStr) >= 2){	
