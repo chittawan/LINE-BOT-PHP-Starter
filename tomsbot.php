@@ -246,7 +246,8 @@ function GetReplyMessage($text,$myUserId) {
 		]];
 	} else if (stripos($text, "Itomshelp") !== false) {	
 		$splitStr = explode('/',$text);
-		$str = "Itomschangemile/ทะเบียนรถ(ไม่มีเว้นวรรคหรืออักขระพิเศษ)/เลขไมล์ \nItomssetsc/เลขที่ Drop จาก TOMS2/16(Fix เนื่องจากจบงานได้อย่างเดียว)";
+		//$str = "Itomschangemile/ทะเบียนรถ(ไม่มีเว้นวรรคหรืออักขระพิเศษ)/เลขไมล์ \nItomssetsc/เลขที่ Drop จาก TOMS2/16(Fix เนื่องจากจบงานได้อย่างเดียว)";
+		$str = "Itomschangemile/ทะเบียนรถ(ไม่มีเว้นวรรคหรืออักขระพิเศษ)/เลขไมล์ \nItomsforcesetsc/เลขที่ Shipment/หมายเลขหัวข้อเหตุผล\n2 = TBLจบงานเครื่องเสีย\n3 = TBLจบงานรถเสีย\n4 = TBLจบงานอุบัติเหตุ\n5 = TBLจบงานพขร.ใหม่\n6 = TBLจบงานSermsuk\n7 = TBLจบงานMultipick\n8 = TBLจบงานDirect\n9 = TBLจบงานAdmin\n10 = TBLจบงานOthers"
 		$messages = [[
 			'type' => 'text',
 			'text' => $str
