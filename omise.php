@@ -17,35 +17,20 @@ function addWordFile($myUserId,$myText){
 	if(!file_exists($myFileName)){
 	   clearQuestionFile($myFileName);
 	}
+	
 	if(file_exists($myFileName)){
-		$myfile = fopen($myFileName, "r") or die("Unable to open file!");		
-	 	$myArray = json_decode(fgets($myfile));		
-		if(empty($myArray)) $myArray = array();
+		$myfile = fopen($myFileName, "w") or die("Unable to open file!");
+		fwrite($myfile, $myText);
 		fclose($myfile);
-		
-		$isExists = false;
-		foreach($myArray as $item)
-		{
-		    if($item->ask == $myAsk)
-		    {
-			$isExists = true;
-			$item->answer = $myAnswer;
-		    }
-		}
-		if(!$isExists){
-		  array_push($myArray,[
-			ask => $myAsk,
-			answer => $myAnswer
-			]);
-		}
-		$json = json_encode($myArray, true);
-		if(file_exists($myFileName)){
-			$myfile = fopen($myFileName, "w") or die("Unable to open file!");
-			fwrite($myfile, $json);
-			fclose($myfile);
-			return 'OK.';
-		}
+		return 'OK.';
 	}
 	return 'Fail';
+}
+
+function clearQuestionFile($fileName){ 
+	$myfile = fopen($fileName, "w") or die("Unable to open file!");
+	fwrite($myfile, json_encode(array()));
+	fclose($myfile);
+	
 }
 ?>
