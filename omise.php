@@ -7,9 +7,30 @@ print_r($payload); // show data from Omise
 if ($event->key == "charge.create") { // if event is `charge.create`
     if ($event->data->status == "successful") { // if status is `successful`
         // add some logic here
-        addWordFile("test", $payload);
+        addWordFile("charge_create", $payload);
+    }
+} else if ($event->key == "charge.complete") { // if event is `charge.create`
+    if ($event->data->status == "successful") { // if status is `successful`
+        // add some logic here
+        addWordFile("charge_complete", $payload);
+    }
+} else if ($event->key == "transfer.create") { // if event is `charge.create`
+    if ($event->data->status == "successful") { // if status is `successful`
+        // add some logic here
+        addWordFile("transfer_create", $payload);
+    }
+} else if ($event->key == "transfer.send") { // if event is `charge.create`
+    if ($event->data->status == "successful") { // if status is `successful`
+        // add some logic here
+        addWordFile("transfer_send", $payload);
+    }
+} else if ($event->key == "transfer.pay") { // if event is `charge.create`
+    if ($event->data->status == "successful") { // if status is `successful`
+        // add some logic here
+        addWordFile("transfer_pay", $payload);
     }
 }
+
 
 function addWordFile($myUserId,$myText){
 	
