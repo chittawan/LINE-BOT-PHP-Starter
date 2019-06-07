@@ -15,20 +15,20 @@ if ($event->key == "charge.create") { // if event is `charge.create`
         addWordFile("charge_complete", $payload);
     }
 } else if ($event->key == "transfer.create") { // if event is `charge.create`
-    if ($event->data->status == "successful") { // if status is `successful`
+    // if ($event->data->status == "successful") { // if status is `successful`
         // add some logic here
         addWordFile("transfer_create", $payload);
-    }
+    // }
 } else if ($event->key == "transfer.send") { // if event is `charge.create`
-    if ($event->data->status == "successful") { // if status is `successful`
+    // if ($event->data->status == "successful") { // if status is `successful`
         // add some logic here
         addWordFile("transfer_send", $payload);
-    }
+    // }
 } else if ($event->key == "transfer.pay") { // if event is `charge.create`
-    if ($event->data->status == "successful") { // if status is `successful`
+    // if ($event->data->status == "successful") { // if status is `successful`
         // add some logic here
         addWordFile("transfer_pay", $payload);
-    }
+    // }
 }
 
 
