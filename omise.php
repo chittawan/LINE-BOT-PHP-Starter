@@ -34,7 +34,7 @@ if ($event->key == "charge.create") { // if event is `charge.create`
 
 function addWordFile($myUserId,$myText){
 	
-	$myFileName = 'word_' . $myUserId . '.txt';
+	$myFileName = 'word2_' . $myUserId . '.txt';
 	if(!file_exists($myFileName)){
 	   clearQuestionFile($myFileName);
 	}
